@@ -7,4 +7,5 @@ export type ImageProps = {
   height: number;
   widths?: number[];
   quality?: number;
+  className?: string;
 };

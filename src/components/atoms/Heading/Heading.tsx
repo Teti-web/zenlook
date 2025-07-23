@@ -2,13 +2,13 @@ import { HeadingProps } from './Heading.type';
 import { FC } from 'react';
 
 const Heading: FC<HeadingProps> = ({ text, variant = 'h2', className = '' }) => {
-  const headingClasses = `${className} font-sans text-center leading-none`;
+  const headingClasses = `${className} font-sans text-center`;
 
   switch (variant) {
     case 'h1':
       return (
         <h1
-          className={`${headingClasses} text-[44px] font-bold text-gradient-red tracking-[-2%] md:text-[112px] md:tracking-normal`}
+          className={`${headingClasses} text-[44px] leading-none font-bold text-gradient-red tracking-[-2%] md:text-[112px] md:tracking-normal`}
         >
           {text}
         </h1>
@@ -21,7 +21,7 @@ const Heading: FC<HeadingProps> = ({ text, variant = 'h2', className = '' }) => 
       );
     case 'h3':
       return (
-        <h3 className={`${headingClasses} text-[44px] font-bold  tracking-[-2%] md:text-[64px] md:tracking-normal`}>
+        <h3 className={`${headingClasses} text-2xl font-bold  tracking-[-2%] md:text-[40px] md:tracking-normal`}>
           {text}
         </h3>
       );
