@@ -1,14 +1,9 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Rethink_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const rethinkSans = Rethink_Sans({
+  variable: '--font-rethink-sans',
   subsets: ['latin'],
 });
 
@@ -24,7 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body
+        className={`${rethinkSans.variable} antialiased overflow-x-hidden mx-3 border border-hover-stroke/30 md:border-0`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
