@@ -51,5 +51,3 @@ export const Small: Story = {
     label: 'Try for Free',
   },
 };
-
-
