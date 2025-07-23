@@ -10,12 +10,14 @@
   --content-inverce: #fafafa;
   --gradient-red-100: linear-gradient(90deg, #c41e28 0%, #f59179 100%);
   --gradient-red: linear-gradient(92.86deg, #f8b3a2 3.43%, #ee4217 115.82%);
+  --gradient-red-blur: linear-gradient(154.68deg, #FDAC9F 37.14%, #EE4217 90.08%);
   --inset-shadow-red: inset -2px -6px 10px 0 #ba142a, inset 2px 6px 10px 0 #ffffff8c;
   --inset-shadow-red-hover: inset -2px -6px 10px 0 #ffffff8c, inset 2px 6px 10px 0 #ba142a;
   --inset-shadow-yellow: inset -2px -10px 10px 0 #ca840e4d, inset 2px 10px 10px 0 #ffffff7d;
   --inset-shadow-yellow-hover: inset -2px -10px 10px 0 #ffffff7d, inset 2px 10px 10px 0 #ca840e4d;
   --inset-shadow-light-pink: inset -2px -2px 9px 0px #fdac9f, 5px 2px 17px 0px #ffffff8c inset;
   --inset-shadow-light-pink-hover: inset -2px -2px 9px 0 #ffffff8c, inset 5px 2px 17px 0 #fdac9f;
+  --font-rethink-sans: 'Rethink Sans', sans-serif;
 }
 
 @theme inline {
@@ -27,6 +29,7 @@
   --color-primary-stroke: var(--primary-stroke);
   --color-gradient-red-100: var(--gradient-red-100);
   --color-gradient-red: var(--gradient-red);
+  --color-gradient-red-blur: var(--gradient-red-blur);
   --color-content-inverce: var(--content-inverce);
   --inset-shadow-red: var(--inset-shadow-red);
   --inset-shadow-red-hover: var(--inset-shadow-red-hover);
@@ -40,7 +43,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
 
 .body-text {
@@ -67,6 +70,21 @@ body {
     linear-gradient(var(--color-background), var(--color-background)) padding-box,
     var(--color-gradient-red-100) border-box;
   border: 1px solid transparent;
+}
+
+.border-gradient-red-thin-top {
+  background:
+    linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    var(--color-gradient-red-100) border-box;
+  border-top: 1px solid transparent;
+}
+
+.bg-gradient-red {
+  background: var(--color-gradient-red);
+}
+
+.bg-gradient-red-blur {
+  background: var(--color-gradient-red-blur);
 }
 
 .text-gradient-red {
