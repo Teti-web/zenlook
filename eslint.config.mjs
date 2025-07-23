@@ -28,13 +28,13 @@ const eslintConfig = [
       'storybook-static/**',
     ],
   },
-  
+
   // Base configuration
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  
+
   // Storybook configuration
   ...storybook.configs['flat/recommended'],
-  
+
   // Custom rules configuration
   {
     rules: {
@@ -64,17 +64,17 @@ const eslintConfig = [
           'ts-check': false,
         },
       ],
-      
+
       // React/Next.js specific rules
       'react/no-unescaped-entities': 'off',
       'react/display-name': 'off',
-      
+
       // General JavaScript rules
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'prefer-const': 'warn',
     },
   },
-  
+
   // Specific overrides for different file types
   {
     files: ['**/*.stories.@(js|jsx|ts|tsx)'],
@@ -83,7 +83,7 @@ const eslintConfig = [
       'react/display-name': 'off',
     },
   },
-  
+
   // Configuration files
   {
     files: ['*.config.{js,mjs,ts}', '.eslintrc.{js,mjs}'],
