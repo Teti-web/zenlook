@@ -10,7 +10,7 @@
   --content-inverce: #fafafa;
   --gradient-red-100: linear-gradient(90deg, #c41e28 0%, #f59179 100%);
   --gradient-red: linear-gradient(92.86deg, #f8b3a2 3.43%, #ee4217 115.82%);
-  --gradient-red-blur: linear-gradient(154.68deg, #FDAC9F 37.14%, #EE4217 90.08%);
+  --gradient-red-blur: linear-gradient(154.68deg, #fdac9f 37.14%, #ee4217 90.08%);
   --inset-shadow-red: inset -2px -6px 10px 0 #ba142a, inset 2px 6px 10px 0 #ffffff8c;
   --inset-shadow-red-hover: inset -2px -6px 10px 0 #ffffff8c, inset 2px 6px 10px 0 #ba142a;
   --inset-shadow-yellow: inset -2px -10px 10px 0 #ca840e4d, inset 2px 10px 10px 0 #ffffff7d;
