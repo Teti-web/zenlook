@@ -6,6 +6,16 @@
   --brand: #ee4217;
   --link: #fdbd17;
   --hover-stroke: #f4afbb4d;
+  --primary-stroke: #c41e28;
+  --content-inverce: #fafafa;
+  --gradient-red-100: linear-gradient(90deg, #c41e28 0%, #f59179 100%);
+
+  --inset-shadow-red: inset -2px -6px 10px 0 #ba142a, inset 2px 6px 10px 0 #ffffff8c;
+  --inset-shadow-red-hover: inset -2px -6px 10px 0 #ffffff8c, inset 2px 6px 10px 0 #ba142a;
+  --inset-shadow-yellow: inset -2px -10px 10px 0 #ca840e4d, inset 2px 10px 10px 0 #ffffff7d;
+  --inset-shadow-yellow-hover: inset -2px -10px 10px 0 #ffffff7d, inset 2px 10px 10px 0 #ca840e4d;
+  --inset-shadow-light-pink: inset -2px -2px 9px 0px #fdac9f, 5px 2px 17px 0px #ffffff8c inset;
+  --inset-shadow-light-pink-hover: inset -2px -2px 9px 0 #ffffff8c, inset 5px 2px 17px 0 #fdac9f;
 }
 
 @theme inline {
@@ -14,6 +24,15 @@
   --color-brand: var(--brand);
   --color-link: var(--link);
   --color-hover-stroke: var(--hover-stroke);
+  --color-primary-stroke: var(--primary-stroke);
+  --color-gradient-red-100: var(--gradient-red-100);
+  --color-content-inverce: var(--content-inverce);
+  --inset-shadow-red: var(--inset-shadow-red);
+  --inset-shadow-red-hover: var(--inset-shadow-red-hover);
+  --inset-shadow-yellow: var(--inset-shadow-yellow);
+  --inset-shadow-yellow-hover: var(--inset-shadow-yellow-hover);
+  --inset-shadow-light-pink: var(--inset-shadow-light-pink);
+  --inset-shadow-light-pink-hover: var(--inset-shadow-light-pink-hover);
   --font-sans: var(--font-rethink-sans);
 }
 
@@ -24,13 +43,27 @@ body {
 }
 
 .body-text {
-  @apply text-secondary font-rethink-sans text-base md:text-lg;
+  @apply text-secondary font-sans text-base md:text-lg;
 }
 
 .body-text-small {
-  @apply text-secondary font-rethink-sans text-base;
+  @apply text-secondary font-sans text-base;
 }
 
 .body-text-large {
-  @apply text-secondary font-rethink-sans text-base md:text-2xl;
+  @apply text-secondary font-sans text-base md:text-2xl;
+}
+
+.border-gradient-red {
+  background:
+    linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    var(--color-gradient-red-100) border-box;
+  border: 2px solid transparent;
+}
+
+.border-gradient-red-thin {
+  background:
+    linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    var(--color-gradient-red-100) border-box;
+  border: 1px solid transparent;
 }
