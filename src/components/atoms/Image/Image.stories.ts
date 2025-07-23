@@ -1,14 +1,14 @@
-import { StoryObj } from "@storybook/nextjs-vite";
+import { StoryObj } from '@storybook/nextjs-vite';
 
-import { Meta } from "@storybook/nextjs-vite";
+import { Meta } from '@storybook/nextjs-vite';
 
-import Image from "./Image";
+import Image from './Image';
 const meta = {
-    title: 'Atoms/Image',
-    component: Image,
-    parameters: {
-      layout: 'centered',
-    },
+  title: 'Atoms/Image',
+  component: Image,
+  parameters: {
+    layout: 'centered',
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Image>;
 
