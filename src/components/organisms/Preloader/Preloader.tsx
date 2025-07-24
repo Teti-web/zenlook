@@ -40,7 +40,15 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
       : Math.min(totalOs, baseVisible + Math.floor(((percentage - 15) / 83) * (totalOs - baseVisible)));
 
   const hasNewOs = visibleOs > baseVisible;
-  const kShift = Math.max(0, visibleOs - baseVisible) * -40;
+
+  // Responsive зсуви для mobile та desktop
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const secondOShift = isMobile ? -20 : -40;
+  const kShiftMultiplier = isMobile ? -20 : -40;
+  const animatedOShiftBase = isMobile ? -30 : -80;
+  const animatedOShiftStep = isMobile ? 25 : 50;
+
+  const kShift = Math.max(0, visibleOs - baseVisible) * kShiftMultiplier;
 
   return (
     <section
@@ -51,13 +59,13 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
       <span className="italic text-4xl md:text-[45px] text-link font-regular">
         {percentage.toString().padStart(2, '0')}%
       </span>
-      <p className="uppercase flex items-center text-gradient-red text-[163px] md:text-[233px] leading-[268.15px] tracking-[-0.06em] w-dvw transition-all duration-500 ease-out">
+      <p className="uppercase flex items-center text-gradient-red text-[56px] md:text-[233px] leading-[268.15px] tracking-[-0.06em] w-dvw transition-all duration-500 ease-out">
         <span>zenl</span>
         <span>o</span>
         <span
           className="inline-block transition-transform duration-500 ease-out text-gradient-red"
           style={{
-            transform: `translateX(${hasNewOs ? -40 : 0}px)`,
+            transform: `translateX(${hasNewOs ? secondOShift : 0}px)`,
           }}
         >
           o
@@ -65,8 +73,16 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
         {Array.from({ length: totalOs - baseVisible }).map((_, index) => {
           const realIndex = index + baseVisible;
           const isVisible = realIndex < visibleOs;
-          const shift = -80 - index * 50;
-          return <AnimatedOLetter key={realIndex} index={realIndex} isVisible={isVisible} shift={shift} />;
+          const shift = animatedOShiftBase - index * animatedOShiftStep;
+          return (
+            <AnimatedOLetter 
+              key={realIndex} 
+              index={realIndex} 
+              isVisible={isVisible} 
+              shift={shift} 
+              isMobile={isMobile}
+            />
+          );
         })}
         <span
           className="inline-block transition-transform duration-500 ease-out text-gradient-red w-max"

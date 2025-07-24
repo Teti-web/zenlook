@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${rethinkSans.variable} antialiased overflow-x-hidden mx-3 border border-hover-stroke/30 md:border-0 md:mx-0`}
+        className={`${rethinkSans.variable} antialiased overflow-x-hidden`}
       >
         <PreloaderWrapper>{children}</PreloaderWrapper>
       </body>
