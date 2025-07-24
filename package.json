@@ -12,6 +12,7 @@
     "lint": "prettier --write . && eslint --fix ."
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.23.7",
     "next": "15.4.2",
     "react": "19.1.0",
