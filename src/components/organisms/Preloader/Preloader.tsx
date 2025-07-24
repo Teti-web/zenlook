@@ -75,11 +75,11 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           const isVisible = realIndex < visibleOs;
           const shift = animatedOShiftBase - index * animatedOShiftStep;
           return (
-            <AnimatedOLetter 
-              key={realIndex} 
-              index={realIndex} 
-              isVisible={isVisible} 
-              shift={shift} 
+            <AnimatedOLetter
+              key={realIndex}
+              index={realIndex}
+              isVisible={isVisible}
+              shift={shift}
               isMobile={isMobile}
             />
           );

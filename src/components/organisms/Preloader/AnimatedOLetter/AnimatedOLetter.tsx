@@ -1,7 +1,7 @@
 'use client';
 
+import { AnimatedOLetterProps } from './AnimatedOLetter.type';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AnimatedOLetterProps } from "./AnimatedOLetter.type";
 
 const AnimatedOLetter = ({ index, isVisible, shift, isMobile = false }: AnimatedOLetterProps) => {
   if (!isVisible) return null;
@@ -14,11 +14,11 @@ const AnimatedOLetter = ({ index, isVisible, shift, isMobile = false }: Animated
       transition={{
         duration: isMobile ? 0.4 : 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
-        delay: (index - 2) * (isMobile ? 0.1 : 0.15)
+        delay: (index - 2) * (isMobile ? 0.1 : 0.15),
       }}
       className="text-gradient-red inline-block"
       style={{
-        zIndex: index + 10
+        zIndex: index + 10,
       }}
     >
       o

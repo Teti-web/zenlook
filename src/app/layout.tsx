@@ -20,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${rethinkSans.variable} antialiased overflow-x-hidden`}
-      >
+      <body className={`${rethinkSans.variable} antialiased overflow-x-hidden`}>
         <PreloaderWrapper>{children}</PreloaderWrapper>
       </body>
     </html>
