@@ -1,8 +1,8 @@
 import PreloaderWrapper from '@/components/templates/PreloaderWrapper/PreloaderWrapper';
+import { Header } from '@/components/organisms/Header/Header';
 import { Rethink_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
-
 const rethinkSans = Rethink_Sans({
   variable: '--font-rethink-sans',
   subsets: ['latin'],
@@ -20,8 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rethinkSans.variable} antialiased overflow-x-hidden`}>
-        <PreloaderWrapper>{children}</PreloaderWrapper>
+      <body
+        className={`${rethinkSans.variable} antialiased overflow-x-hidden grid grid-cols-1 grid-rows-[auto_1fr_auto] h-dvh grid-areas-layout`}
+      >
+        <PreloaderWrapper>
+          <Header />
+          <main className="mx-3 md:mx-0 border-x border-hover-stroke grid-area-main">{children}</main>
+        </PreloaderWrapper>
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -46,6 +47,26 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
+.grid-areas-layout {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+}
+
+.grid-area-header {
+  grid-area: header;
+}
+
+.grid-area-main {
+  grid-area: main;
+}
+
+.grid-area-footer {
+  grid-area: footer;
+}
+
 .body-text {
   @apply text-secondary font-sans text-base md:text-lg;
 }
@@ -92,4 +113,13 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-shadow-yellow {
+  color: transparent;
+  background:
+    radial-gradient(ellipse at bottom right, #ca840e4d 0%, transparent 20%),
+    radial-gradient(ellipse at top left, #ffffff7d 0%, transparent 80%), var(--color-link);
+  background-clip: text;
+  -webkit-background-clip: text;
 }

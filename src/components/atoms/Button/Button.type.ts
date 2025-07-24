@@ -3,7 +3,7 @@ export type ButtonSize = 'small' | 'medium' | 'large';
 
 export type ButtonProps = {
   children: React.ReactNode | string;
-  onClick: () => void;
+  onClick?: () => void;
   variant: ButtonVariant;
   size: ButtonSize;
   label?: string;
