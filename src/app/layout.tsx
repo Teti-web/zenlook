@@ -1,3 +1,4 @@
+import PreloaderWrapper from '@/components/templates/PreloaderWrapper/PreloaderWrapper';
 import { Rethink_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body
         className={`${rethinkSans.variable} antialiased overflow-x-hidden mx-3 border border-hover-stroke/30 md:border-0 md:mx-0`}
       >
-        {children}
+        <PreloaderWrapper>{children}</PreloaderWrapper>
       </body>
     </html>
   );
