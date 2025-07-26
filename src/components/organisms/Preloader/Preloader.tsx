@@ -52,18 +52,18 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
 
   return (
     <section
-      className={`w-full h-screen bg-brand flex flex-col items-start justify-end p-3.5 md:p-6 transition-opacity duration-500 ${
+      className={`bg-brand flex h-screen w-full flex-col items-start justify-end p-3.5 transition-opacity duration-500 md:p-6 ${
         isComplete ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      <span className="italic text-4xl md:text-[45px] text-link font-regular">
+      <span className="text-link font-regular text-4xl italic md:text-[45px]">
         {percentage.toString().padStart(2, '0')}%
       </span>
-      <p className="uppercase flex items-center text-gradient-red text-[56px] md:text-[233px] leading-[268.15px] tracking-[-0.06em] w-dvw transition-all duration-500 ease-out">
+      <p className="text-gradient-red flex w-dvw items-center text-[56px] leading-[268.15px] tracking-[-0.06em] uppercase transition-all duration-500 ease-out md:text-[233px]">
         <span>zenl</span>
         <span>o</span>
         <span
-          className="inline-block transition-transform duration-500 ease-out text-gradient-red"
+          className="text-gradient-red inline-block transition-transform duration-500 ease-out"
           style={{
             transform: `translateX(${hasNewOs ? secondOShift : 0}px)`,
           }}
@@ -85,7 +85,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           );
         })}
         <span
-          className="inline-block transition-transform duration-500 ease-out text-gradient-red w-max"
+          className="text-gradient-red inline-block w-max transition-transform duration-500 ease-out"
           style={{
             transform: `translateX(${kShift}px)`,
             willChange: 'transform',

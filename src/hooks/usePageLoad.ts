@@ -1,11 +1,9 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 export const usePageLoad = () => {
   const [isPageLoad, setIsPageLoad] = useState<boolean | null>(null);
-  const router = useRouter();
 
   useEffect(() => {
     const checkPageLoad = () => {

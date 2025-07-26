@@ -9,6 +9,7 @@
   --hover-stroke: #f4afbb4d;
   --primary-stroke: #c41e28;
   --content-inverce: #fafafa;
+  --notice: #807978;
   --gradient-red-100: linear-gradient(90deg, #c41e28 0%, #f59179 100%);
   --gradient-red: linear-gradient(92.86deg, #f8b3a2 3.43%, #ee4217 115.82%);
   --gradient-red-blur: linear-gradient(154.68deg, #fdac9f 37.14%, #ee4217 90.08%);
@@ -28,6 +29,7 @@
   --color-link: var(--link);
   --color-hover-stroke: var(--hover-stroke);
   --color-primary-stroke: var(--primary-stroke);
+  --color-notice: var(--notice);
   --color-gradient-red-100: var(--gradient-red-100);
   --color-gradient-red: var(--gradient-red);
   --color-gradient-red-blur: var(--gradient-red-blur);
@@ -65,6 +67,30 @@ body {
 
 .grid-area-footer {
   grid-area: footer;
+}
+
+.grid-footer-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'footer-mail' 'footer-logo' 'footer-links';
+}
+
+@media (min-width: 768px) {
+  .grid-footer-layout {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'footer-mail footer-links' 'footer-logo footer-logo';
+  }
+}
+.grid-footer-logo {
+  grid-area: footer-logo;
+}
+
+.grid-footer-links {
+  grid-area: footer-links;
+}
+
+.grid-footer-mail {
+  grid-area: footer-mail;
 }
 
 .body-text {

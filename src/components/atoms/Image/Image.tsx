@@ -1,3 +1,5 @@
+'use client';
+
 import { default as NextImage } from 'next/image';
 import { ImageProps } from './Image.type';
 import { FC, useState } from 'react';
@@ -29,11 +31,7 @@ const Image: FC<ImageProps> = ({
         height={height}
         quality={quality}
         onLoadingComplete={() => setLoaded(true)}
-        className={`
-          transition-all duration-500 bg-gradient-red-blur
-          ${loaded ? 'blur-0' : 'blur-xs'}
-          ${className}
-        `}
+        className={`transition-all duration-500 ${loaded ? 'blur-0 bg-transparent' : 'bg-gradient-red-blur blur-xs'} ${className} `}
       />
     </picture>
   );
