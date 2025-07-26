@@ -30,7 +30,28 @@ export default function RootLayout({
             {children}
           </main>
           <Footer
-            links={[]}
+            links={[
+              {
+                href: '/features',
+                children: 'Features',
+              },
+              {
+                href: '/pricing',
+                children: 'Pricing',
+              },
+              {
+                href: '/blog',
+                children: 'Blog',
+              },
+              {
+                href: '/contact',
+                children: 'Contact',
+              },
+              {
+                href: '/support',
+                children: 'Support',
+              },
+            ]}
             description={'Curious to streamline you workflow, boost your brand or start glowing today?'}
             mail={'zenlook@gmail.com'}
           />

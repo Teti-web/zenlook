@@ -38,21 +38,11 @@ const Footer: FC<FooterProps> = ({ links, description, mail }) => {
           />
         </div>
         <div className="grid-footer-links flex flex-row items-center justify-between md:justify-end md:gap-6">
-          <Link variant="secondary" className="text-base font-medium" href={'/features'}>
-            Features
-          </Link>
-          <Link variant="secondary" className="text-base font-medium" href={'/pricing'}>
-            Pricing
-          </Link>
-          <Link variant="secondary" className="text-base font-medium" href={'/blog'}>
-            Blog
-          </Link>
-          <Link variant="secondary" className="text-base font-medium" href={'/contact'}>
-            Contact
-          </Link>
-          <Link variant="secondary" className="text-base font-medium" href={'/support'}>
-            Support
-          </Link>
+          {links.map((link) => (
+            <Link key={link.href} variant="secondary" className="text-base font-medium" href={link.href}>
+              {link.children}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="flex flex-row items-center justify-between pt-10">
