@@ -4,7 +4,7 @@ import { FooterProps } from './Footer.type';
 import { FC } from 'react';
 const Footer: FC<FooterProps> = ({ links, description, mail }) => {
   return (
-    <footer className="grid-area-footer border-hover-stroke mx-3 border-x pb-2 md:mx-6 lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]">
+    <footer className="grid-area-footer border-hover-stroke mx-3 border-x pb-2 md:mx-6 lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px] md:w-full">
       <p className="text-brand font-regular after::block after:bg-hover-stroke w-fit font-sans text-sm uppercase after:mb-2 after:block after:h-[1px] after:w-full md:text-lg">
         Contact us
       </p>
