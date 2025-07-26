@@ -1,5 +1,6 @@
 import PreloaderWrapper from '@/components/templates/PreloaderWrapper/PreloaderWrapper';
 import { Header } from '@/components/organisms/Header/Header';
+import Footer from '@/components/organisms/Footer/Footer';
 import { Rethink_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -21,11 +22,39 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${rethinkSans.variable} antialiased overflow-x-hidden grid grid-cols-1 grid-rows-[auto_1fr_auto] h-dvh grid-areas-layout`}
+        className={`${rethinkSans.variable} grid-areas-layout grid h-dvh grid-cols-1 grid-rows-[auto_1fr_auto] overflow-x-hidden antialiased`}
       >
         <PreloaderWrapper>
           <Header />
-          <main className="mx-3 md:mx-0 border-x border-hover-stroke grid-area-main">{children}</main>
+          <main className="border-hover-stroke grid-area-main mx-3 border-x md:mx-6 lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]">
+            {children}
+          </main>
+          <Footer
+            links={[
+              {
+                href: '/features',
+                children: 'Features',
+              },
+              {
+                href: '/pricing',
+                children: 'Pricing',
+              },
+              {
+                href: '/blog',
+                children: 'Blog',
+              },
+              {
+                href: '/contact',
+                children: 'Contact',
+              },
+              {
+                href: '/support',
+                children: 'Support',
+              },
+            ]}
+            description={'Curious to streamline you workflow, boost your brand or start glowing today?'}
+            mail={'zenlook@gmail.com'}
+          />
         </PreloaderWrapper>
       </body>
     </html>

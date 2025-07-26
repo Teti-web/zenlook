@@ -37,3 +37,11 @@ export const Underline: Story = {
     variant: 'underline',
   },
 };
+
+export const Notice: Story = {
+  args: {
+    href: '/',
+    children: 'Notice Link',
+    variant: 'notice',
+  },
+};

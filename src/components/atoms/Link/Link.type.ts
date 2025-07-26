@@ -1,4 +1,4 @@
-export type LinkVariant = 'primary' | 'secondary' | 'underline';
+export type LinkVariant = 'primary' | 'secondary' | 'underline' | 'notice';
 
 export type LinkProps = {
   href: string;

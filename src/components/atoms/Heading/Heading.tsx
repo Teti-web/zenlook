@@ -8,7 +8,7 @@ const Heading: FC<HeadingProps> = ({ text, variant = 'h2', className = '' }) => 
     case 'h1':
       return (
         <h1
-          className={`${headingClasses} text-[44px] leading-none font-bold text-gradient-red tracking-[-2%] md:text-[112px] md:tracking-normal`}
+          className={`${headingClasses} text-gradient-red text-[44px] leading-none font-bold tracking-[-2%] md:text-[112px] md:tracking-normal`}
         >
           {text}
         </h1>
@@ -21,19 +21,19 @@ const Heading: FC<HeadingProps> = ({ text, variant = 'h2', className = '' }) => 
       );
     case 'h3':
       return (
-        <h3 className={`${headingClasses} text-2xl font-bold  tracking-[-2%] md:text-[40px] md:tracking-normal`}>
+        <h3 className={`${headingClasses} text-2xl font-bold tracking-[-2%] md:text-[40px] md:tracking-normal`}>
           {text}
         </h3>
       );
     case 'h4':
       return (
-        <h4 className={`${headingClasses} text-[32px] font-bold  tracking-[-2%] md:text-[48px] md:tracking-normal`}>
+        <h4 className={`${headingClasses} text-[32px] font-bold tracking-[-2%] md:text-[48px] md:tracking-normal`}>
           {text}
         </h4>
       );
     case 'h5':
       return (
-        <h5 className={`${headingClasses} text-[24px] font-bold  tracking-[-2%] md:text-[32px] md:tracking-normal`}>
+        <h5 className={`${headingClasses} text-[24px] font-bold tracking-[-2%] md:text-[32px] md:tracking-normal`}>
           {text}
         </h5>
       );
@@ -45,7 +45,7 @@ const Heading: FC<HeadingProps> = ({ text, variant = 'h2', className = '' }) => 
       );
     default:
       return (
-        <h2 className={`${headingClasses} text-[44px] font-bold  tracking-[-2%] md:text-[80px] md:tracking-normal`}>
+        <h2 className={`${headingClasses} text-[44px] font-bold tracking-[-2%] md:text-[80px] md:tracking-normal`}>
           {text}
         </h2>
       );

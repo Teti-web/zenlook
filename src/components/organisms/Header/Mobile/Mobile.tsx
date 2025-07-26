@@ -57,15 +57,15 @@ const Mobile: FC<MobileProps> = ({ logo, logoWhite, links, button }) => {
   };
 
   return (
-    <header className="grid-area-header flex flex-row items-center justify-between pt-4 mx-3 border-x border-hover-stroke">
+    <header className="grid-area-header border-hover-stroke mx-3 flex flex-row items-center justify-between border-x pt-4">
       <Link href={'/'} className="flex flex-row items-center justify-center">
         <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
       </Link>
       <button
-        className="flex justify-center items-center bg-link rounded-full  w-[44px] h-[44px] inset-shadow-yellow"
+        className="bg-link inset-shadow-yellow flex h-[44px] w-[44px] items-center justify-center rounded-full"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Bars2Icon className="size-6 text-brand" />
+        <Bars2Icon className="text-brand size-6" />
       </button>
 
       <AnimatePresence>
@@ -78,7 +78,7 @@ const Mobile: FC<MobileProps> = ({ logo, logoWhite, links, button }) => {
               duration: 0.3,
               ease: [0.25, 0.1, 0.25, 1],
             }}
-            className="absolute top-0 left-0 flex flex-col w-full h-dvh bg-brand pt-[56px] px-3 pb-8 justify-between"
+            className="bg-brand absolute top-0 left-0 flex h-dvh w-full flex-col justify-between px-3 pt-[56px] pb-8"
           >
             <div className="flex flex-col gap-9">
               <motion.div
@@ -100,10 +100,10 @@ const Mobile: FC<MobileProps> = ({ logo, logoWhite, links, button }) => {
                   )}
                 </Link>
                 <button
-                  className="flex justify-center items-center bg-link rounded-full w-[44px] h-[44px] inset-shadow-yellow"
+                  className="bg-link inset-shadow-yellow flex h-[44px] w-[44px] items-center justify-center rounded-full"
                   onClick={() => setIsOpen(!isOpen)}
                 >
-                  <XMarkIcon className="size-6 text-brand" />
+                  <XMarkIcon className="text-brand size-6" />
                 </button>
               </motion.div>
 
@@ -121,12 +121,12 @@ const Mobile: FC<MobileProps> = ({ logo, logoWhite, links, button }) => {
                     transition={{ delay: 0.3 + index * 0.1, duration: 0.3 }}
                     className="flex flex-row items-start justify-start gap-4"
                   >
-                    <span className="block text-content-inverce font-sans font-regular text-xs">
+                    <span className="text-content-inverce font-regular block font-sans text-xs">
                       [&nbsp;0{index + 1}&nbsp;]
                     </span>
                     <Link
                       href={link.href}
-                      className="text-gradient-red font-sans font-bold text-[44px] leading-none"
+                      className="text-gradient-red font-sans text-[44px] leading-none font-bold"
                       onClick={handleLinkClick}
                     >
                       {link.children}
@@ -140,12 +140,12 @@ const Mobile: FC<MobileProps> = ({ logo, logoWhite, links, button }) => {
                 transition={{ delay: 0.3 + links.length * 0.1, duration: 0.3 }}
                 className="flex flex-row items-start justify-start gap-4"
               >
-                <span className="block text-content-inverce font-sans font-regular text-xs">
+                <span className="text-content-inverce font-regular block font-sans text-xs">
                   [&nbsp;0{links.length + 1}&nbsp;]
                 </span>
                 <Link
                   href={button.href}
-                  className="text-gradient-shadow-yellow leading-none font-sans font-bold text-[44px]"
+                  className="text-gradient-shadow-yellow font-sans text-[44px] leading-none font-bold"
                   onClick={handleLinkClick}
                 >
                   {button.children}

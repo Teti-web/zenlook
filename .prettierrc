@@ -1,9 +1,9 @@
 {
   "plugins": [
-    "prettier-plugin-tailwindcss",
     "prettier-plugin-organize-imports",
     "prettier-plugin-organize-attributes",
-    "prettier-plugin-sort-imports"
+    "prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
   ],
   "singleQuote": true,
   "trailingComma": "all",
@@ -17,6 +17,6 @@
   "embeddedLanguageFormatting": "auto",
   "htmlWhitespaceSensitivity": "css",
   "bracketSpacing": true,
-  "jsxBracketSameLine": false,
-  "quoteProps": "as-needed"
+  "quoteProps": "as-needed",
+  "tailwindFunctions": ["clsx", "cn", "cva"]
 }

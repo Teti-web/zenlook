@@ -6,7 +6,7 @@ import { FC } from 'react';
 
 const Desktop: FC<DesktopProps> = ({ logo, firstColumn, secondColumn }) => {
   return (
-    <header className="grid-area-header flex flex-row items-center justify-between pt-2.5 md:px-6 lg:px-0 lg:max-w-[1216px] xl:max-w-[1376px] w-full mx-auto">
+    <header className="grid-area-header mx-auto flex w-full flex-row items-center justify-between pt-2.5 md:px-6 lg:max-w-[1216px] lg:px-0 xl:max-w-[1376px]">
       <div className="flex flex-row items-center justify-start gap-4">
         {firstColumn.links.map((link) => (
           <Link className="font-medium" key={link.href} {...link} />
