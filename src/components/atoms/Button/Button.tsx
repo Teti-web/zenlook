@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({
   onClick,
   className,
 }) => {
-  let buttonClasses = `border-0 flex items-center justify-center rounded-full cursor-pointer transition-all duration-500 delay-300 ${className}`;
+  let buttonClasses = `border-0 flex items-center justify-center rounded-full cursor-pointer transition-all duration-500  ${className}`;
 
   const buttonVariants = {
     primary: 'bg-brand text-content-inverce inset-shadow-red hover:inset-shadow-red-hover',

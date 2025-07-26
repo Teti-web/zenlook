@@ -2,6 +2,7 @@
 
 import AnimatedOLetter from './AnimatedOLetter/AnimatedOLetter';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface PreloaderProps {
   onComplete?: () => void;
@@ -41,25 +42,55 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
 
   const hasNewOs = visibleOs > baseVisible;
 
-  // Responsive зсуви для mobile та desktop
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const secondOShift = isMobile ? -20 : -40;
+  const secondOShift = isMobile ? -20 : -50;
   const kShiftMultiplier = isMobile ? -20 : -40;
-  const animatedOShiftBase = isMobile ? -30 : -80;
+  const animatedOShiftBase = isMobile ? -30 : -120;
   const animatedOShiftStep = isMobile ? 25 : 50;
 
   const kShift = Math.max(0, visibleOs - baseVisible) * kShiftMultiplier;
 
   return (
-    <section
-      className={`bg-brand flex h-screen w-full flex-col items-start justify-end p-3.5 transition-opacity duration-500 md:p-6 ${
-        isComplete ? 'opacity-0' : 'opacity-100'
-      }`}
+    <motion.section
+      initial={{ y: 0, opacity: 1 }}
+      animate={{ 
+        y: isComplete ? '-100%' : 0, 
+        opacity: isComplete ? 0 : 1 
+      }}
+      transition={{ 
+        duration: 0.7, 
+        ease: [0.25, 0.1, 0.25, 1] 
+      }}
+      className="bg-brand flex h-screen w-full flex-col items-start justify-end p-3.5 md:p-6 relative"
     >
-      <span className="text-link font-regular text-4xl italic md:text-[45px]">
+      <motion.span 
+        initial={{ y: 0, opacity: 1 }}
+        animate={{ 
+          y: isComplete ? '-50px' : 0, 
+          opacity: isComplete ? 0 : 1 
+        }}
+        transition={{ 
+          duration: 0.6, 
+          ease: [0.25, 0.1, 0.25, 1],
+          delay: isComplete ? 0.1 : 0
+        }}
+        className="text-link font-regular text-4xl italic md:text-[45px]"
+      >
         {percentage.toString().padStart(2, '0')}%
-      </span>
-      <p className="text-gradient-red flex w-dvw items-center text-[56px] leading-[268.15px] tracking-[-0.06em] uppercase transition-all duration-500 ease-out md:text-[233px]">
+      </motion.span>
+      <motion.p 
+        initial={{ y: 0, opacity: 1 }}
+        animate={{ 
+          y: isComplete ? '-30px' : 0, 
+          opacity: isComplete ? 0 : 1 
+        }}
+        transition={{ 
+          duration: 0.8, 
+          ease: [0.25, 0.1, 0.25, 1],
+          delay: isComplete ? 0.05 : 0
+        }}
+        className="text-gradient-red flex w-dvw items-center text-[56px] leading-[268.15px] tracking-[-0.06em] uppercase transition-all duration-500 ease-out md:text-[233px]"
+      >
         <span>zenl</span>
         <span>o</span>
         <span
@@ -93,8 +124,8 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
         >
           k
         </span>
-      </p>
-    </section>
+      </motion.p>
+    </motion.section>
   );
 };
 

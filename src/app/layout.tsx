@@ -26,7 +26,7 @@ export default function RootLayout({
       >
         <PreloaderWrapper>
           <Header />
-          <main className="border-hover-stroke grid-area-main mx-3 w-full border-x md:mx-6 md:border-none lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]">
+          <main className="border-hover-stroke grid-area-main mx-3 md:w-full border-x md:mx-6 md:border-none lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]">
             {children}
           </main>
           <Footer
