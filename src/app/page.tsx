@@ -66,7 +66,7 @@ export default function Home() {
               },
             },
             {
-              className: 'z-3',
+              className: 'z-20',
               decorativeNumber: '02',
               title: {
                 text: 'Zenlook Sends Reminders',

@@ -2,9 +2,9 @@
 
 import Heading from '@/components/atoms/Heading/Heading';
 import Image from '@/components/atoms/Image/Image';
+import { motion, useInView } from 'framer-motion';
 import { CardProps } from './Card.type';
 import { FC, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 
 const Card: FC<CardProps> = ({
   title,
@@ -17,10 +17,10 @@ const Card: FC<CardProps> = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  
+
   const translateClass =
     translate === 'top'
-      ? 'md:absolute md:-top-80 md:left-8'
+      ? 'md:absolute md:-top-87 md:left-8'
       : translate === 'middle'
         ? 'md:absolute md:-top-40 md:right-8'
         : ' ';
