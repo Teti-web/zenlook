@@ -1,10 +1,10 @@
 'use client';
 import Description from '@/components/molecules/Description/Description';
+import Label from '@/components/atoms/Label/Label';
 import Image from '@/components/atoms/Image/Image';
 import { motion, useInView } from 'framer-motion';
 import type { IntroProps } from './Intro.type';
 import { FC, useRef } from 'react';
-import Label from '@/components/atoms/Label/Label';
 
 const Intro: FC<IntroProps> = ({ description, label }) => {
   const ref = useRef(null);

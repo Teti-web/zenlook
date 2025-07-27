@@ -1,5 +1,8 @@
+import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
+import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
 import Description from '@/components/molecules/Description/Description';
 import Intro from '@/components/organisms/Intro/Intro';
+import Anagraph from '@/components/molecules/Anagraph/Anagraph';
 
 export default function Home() {
   return (
@@ -36,6 +39,22 @@ export default function Home() {
           className: 'w-max',
         }}
       />
+      <DecorativeContainer>
+        <FeaturesBlock
+          label={{
+            text: 'NO FLUFF. JUST ESSENTIALS.',
+          }}
+          title={{
+            text: 'Manage your beauty business like a dream',
+            variant: 'h2',
+          }}
+          features={[]}
+        />
+        <Anagraph
+          title="Contact us"
+          description={'Curious to streamline you workflow, boost your brand or start glowing today?'}
+        />
+      </DecorativeContainer>
     </>
   );
 }

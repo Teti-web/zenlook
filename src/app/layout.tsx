@@ -52,7 +52,6 @@ export default function RootLayout({
                 children: 'Support',
               },
             ]}
-            description={'Curious to streamline you workflow, boost your brand or start glowing today?'}
             mail={'zenlook@gmail.com'}
           />
         </PreloaderWrapper>
