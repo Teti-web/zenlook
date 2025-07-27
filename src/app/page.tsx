@@ -1,8 +1,8 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
 import Description from '@/components/molecules/Description/Description';
-import Intro from '@/components/organisms/Intro/Intro';
 import Anagraph from '@/components/molecules/Anagraph/Anagraph';
+import Intro from '@/components/organisms/Intro/Intro';
 
 export default function Home() {
   return (
@@ -48,7 +48,71 @@ export default function Home() {
             text: 'Manage your beauty business like a dream',
             variant: 'h2',
           }}
-          features={[]}
+          features={[
+            {
+              translate: "top",
+              className: "z-2",
+              decorativeNumber: '01',
+              title: {
+                text: 'Track your performance',
+                variant: 'h3',
+              },
+              description: 'Track your progress and performance easily & growth here',
+              image: {
+                src: '/images/reports.png',
+                alt: 'Reports',
+                width: 391,
+                height: 280,
+              },
+            },
+            { className: "z-3",
+              decorativeNumber: '02',
+              title: {
+                text: 'Zenlook Sends Reminders',
+                variant: 'h3',
+              },
+              description: 'Reduce no-shows and keep your schedule full',
+              image: {
+                src: '/images/meetings.png',
+                alt: 'Meetings',
+                width: 391,
+                height: 280,
+              },
+            },
+            {
+              translate: "middle",
+              className: "z-[-1]",
+              decorativeNumber: '03',
+              title: {
+                text: 'Set Up Your Schedule ',
+                variant: 'h3',
+              },
+              description: 'Add services, pricing, and availability',
+              image: {
+                src: '/images/calendar.png',
+                mobileSrc: '/images/calendar-mobile.png',
+                alt: 'Calendar',
+                width: 391,
+                height: 280,
+              },
+              decoratorsImage: [
+                {
+                  src: '/images/calendar-client.png',
+                  alt: 'Calendar Client',
+                  width: 125,
+                  height: 69,
+                  className: 'top-9 -left-6',
+                },
+                {
+                  src: '/images/calendar-client2.png',
+                  alt: 'Calendar Client 2',
+                  width: 125,
+                  height: 69,
+                  className: 'top-31 -left-10',
+                },
+              ],
+            },
+          ]}
         />
         <Anagraph
           title="Contact us"

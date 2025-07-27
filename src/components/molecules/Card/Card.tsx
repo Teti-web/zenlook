@@ -3,12 +3,14 @@ import Image from '@/components/atoms/Image/Image';
 import { CardProps } from './Card.type';
 import { FC } from 'react';
 
-const Card: FC<CardProps> = ({ title, description, decorativeNumber, image, className, decoratorsImage }) => {
+const Card: FC<CardProps> = ({ title, description, decorativeNumber, image, className, decoratorsImage, translate }) => {
+  const translateClass = translate === "top" ? "md:absolute md:-top-80 md:left-8" : translate === "middle" ? "md:absolute md:-top-40 md:right-8" : " ";
   return (
+    
     <div
-      className={`${className} border-gradient-red-thin bg-content-inverce/20 flex max-w-[391px] flex-col backdrop-blur-[20px]`}
+      className={`${className} ${translateClass} border-peach border bg-content-inverce-blur flex w-full max-w-[391px] flex-col backdrop-blur-sm`}
     >
-      <div className="flex flex-col gap-[40px] p-10 md:gap-8">
+      <div className="flex flex-col gap-[40px] p-10 md:gap-8 bg-transparent">
         <span className="text-secondary font-regular font-sans text-xs leading-[18px] tracking-wider">
           [&nbsp;{decorativeNumber}&nbsp;]
         </span>
@@ -17,14 +19,14 @@ const Card: FC<CardProps> = ({ title, description, decorativeNumber, image, clas
           <p className="font-regular body-text">{description}</p>
         </div>
       </div>
-      <div className="border-gradient-red-thin-top relative">
+      <div className="border-peach border relative">
         <Image {...image} className="h-full w-full object-cover" />
         {decoratorsImage &&
           decoratorsImage.map((decorator) => (
             <Image
               key={decorator.src}
               {...decorator}
-              className={`absolute top-0 left-0 hidden h-[69px] w-[125px] rounded-[12px] object-cover md:block ${decorator.className}`}
+              className={`absolute hidden h-[69px] w-[125px] rounded-[12px] object-cover md:block ${decorator.className}`}
             />
           ))}
       </div>

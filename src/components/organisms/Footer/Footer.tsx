@@ -11,11 +11,11 @@ const Footer: FC<FooterProps> = ({ links, mail }) => {
 
   return (
     <footer
-      className="relative grid-area-footer border-hover-stroke mx-3 border-x pb-2 md:mx-6 md:w-full lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]"
+      className="grid-area-footer border-hover-stroke relative mx-3 border-x pb-2 md:mx-6 md:w-full lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]"
       ref={ref}
     >
-         <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block" />
-         <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block" />
+      <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block" />
+      <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block" />
       <div className="grid-footer-layout md:pt-8">
         <div className="grid-footer-mail flex w-max flex-col gap-4">
           <Link
