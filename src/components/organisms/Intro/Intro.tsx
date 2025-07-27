@@ -4,6 +4,7 @@ import Image from '@/components/atoms/Image/Image';
 import { motion, useInView } from 'framer-motion';
 import type { IntroProps } from './Intro.type';
 import { FC, useRef } from 'react';
+import Label from '@/components/atoms/Label/Label';
 
 const Intro: FC<IntroProps> = ({ description, label }) => {
   const ref = useRef(null);
@@ -15,9 +16,7 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
         <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block" />
         <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block" />
         <div className="absolute top-32 left-1/2 z-10 flex w-full max-w-[930px] -translate-x-1/2 flex-col items-center justify-center gap-4">
-          {label && (
-            <span className="text-brand border-brand w-max border-b pb-1.5 text-sm uppercase md:text-lg">{label}</span>
-          )}
+          {label && <Label text={label} />}
           <Description {...description} variant="secondary" isAnimated={true} />
         </div>
       </div>
