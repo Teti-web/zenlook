@@ -3,6 +3,7 @@ import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
 import Description from '@/components/molecules/Description/Description';
 import Anagraph from '@/components/molecules/Anagraph/Anagraph';
 import Intro from '@/components/organisms/Intro/Intro';
+import AutoSlider from '@/components/molecules/AutoSlider/AutoSlider';
 
 export default function Home() {
   return (
@@ -112,6 +113,37 @@ export default function Home() {
                   className: 'top-31 -left-10',
                 },
               ],
+            },
+          ]}
+        />
+        <AutoSlider
+          label={{
+            text: 'TRUSTED BY',
+          }}
+          items={[
+            {
+              src: '/images/trasted/logo-1.png',
+              alt: 'Calendar',
+              width: 194,
+              height: 58,
+            },
+            {
+              src: '/images/trasted/logo-2.png',
+              alt: 'Calendar',
+              width: 221,
+              height: 40,
+            },
+            {
+              src: '/images/trasted/logo-3.png',
+              alt: 'Calendar',
+              width: 163,
+              height: 40,
+            },
+            {
+              src: '/images/trasted/logo-4.png',
+              alt: 'Calendar',
+              width: 450,
+              height: 54,
             },
           ]}
         />
