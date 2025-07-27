@@ -50,8 +50,8 @@ export default function Home() {
           }}
           features={[
             {
-              translate: "top",
-              className: "z-2",
+              translate: 'top',
+              className: 'z-2',
               decorativeNumber: '01',
               title: {
                 text: 'Track your performance',
@@ -65,7 +65,8 @@ export default function Home() {
                 height: 280,
               },
             },
-            { className: "z-3",
+            {
+              className: 'z-3',
               decorativeNumber: '02',
               title: {
                 text: 'Zenlook Sends Reminders',
@@ -80,8 +81,8 @@ export default function Home() {
               },
             },
             {
-              translate: "middle",
-              className: "z-[-1]",
+              translate: 'middle',
+              className: 'z-[-1]',
               decorativeNumber: '03',
               title: {
                 text: 'Set Up Your Schedule ',

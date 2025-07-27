@@ -33,7 +33,7 @@ const Image: FC<ImageProps> = ({
         height={height}
         quality={quality}
         onLoadingComplete={() => setLoaded(true)}
-        className={`transition-all duration-500 ${loaded ? 'blur-0 bg-transparent' : ' blur-xs bg-peach/75 inset-shadow-light-pink'} ${className} `}
+        className={`transition-all duration-500 ${loaded ? 'blur-0 bg-transparent' : 'bg-peach/75 inset-shadow-light-pink blur-xs'} ${className} `}
       />
     </picture>
   );

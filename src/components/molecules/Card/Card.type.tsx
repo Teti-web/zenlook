@@ -1,7 +1,7 @@
 import type { HeadingProps } from '@/components/atoms/Heading/Heading.type';
 import type { ImageProps } from '@/components/atoms/Image/Image.type';
 
-export type Translate = "top" | "middle" | "none";
+export type Translate = 'top' | 'middle' | 'none';
 
 export type CardProps = {
   title: HeadingProps;
