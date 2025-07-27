@@ -1,8 +1,8 @@
 'use client';
-import Label from '@/components/atoms/Label/Label';
-import Image from '@/components/atoms/Image/Image';
 import type { AutoSliderProps } from './AutoSlider.type';
 import { motion, useAnimation } from 'framer-motion';
+import Label from '@/components/atoms/Label/Label';
+import Image from '@/components/atoms/Image/Image';
 import { FC, useEffect } from 'react';
 
 const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
@@ -13,13 +13,13 @@ const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
     // Запускаємо анімацію
     const startAnimation = () => {
       controls.start({
-        x: `-${50}%`, 
+        x: `-${50}%`,
         transition: {
-          duration: items.length * 8, 
-          ease: "linear",
+          duration: items.length * 8,
+          ease: 'linear',
           repeat: Infinity,
-          repeatType: "loop"
-        }
+          repeatType: 'loop',
+        },
       });
     };
 
@@ -27,7 +27,7 @@ const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
   }, [controls, items.length]);
 
   const handleMouseEnter = () => {
-    controls.stop(); 
+    controls.stop();
   };
 
   const handleMouseLeave = () => {
@@ -35,24 +35,20 @@ const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
       x: `-${50}%`,
       transition: {
         duration: items.length * 8,
-        ease: "linear",
+        ease: 'linear',
         repeat: Infinity,
-        repeatType: "loop"
-      }
+        repeatType: 'loop',
+      },
     });
   };
 
   return (
-    <div className='flex flex-col gap-10 md:gap-6 items-center justify-center md:py-8'>
+    <div className="flex flex-col items-center justify-center gap-10 md:gap-6 md:py-8">
       {label && <Label {...label} />}
-      
-      <div 
-        className="relative overflow-hidden w-full" 
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <motion.div 
-          className='flex flex-row justify-center items-center gap-8 md:gap-28' 
+
+      <div className="relative w-full overflow-hidden" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <motion.div
+          className="flex flex-row items-center justify-center gap-8 md:gap-28"
           animate={controls}
           initial={{ x: 0 }}
         >
@@ -61,17 +57,16 @@ const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
               key={`${item.src}-${index}`}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ 
+              transition={{
                 duration: 0.8,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="flex-shrink-0 max-w-[250px] md:max-w-[450px]" 
+              className="max-w-[250px] flex-shrink-0 md:max-w-[450px]"
             >
               <Image {...item} />
             </motion.div>
           ))}
         </motion.div>
-    
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
 import Description from '@/components/molecules/Description/Description';
+import AutoSlider from '@/components/molecules/AutoSlider/AutoSlider';
 import Anagraph from '@/components/molecules/Anagraph/Anagraph';
 import Intro from '@/components/organisms/Intro/Intro';
-import AutoSlider from '@/components/molecules/AutoSlider/AutoSlider';
 
 export default function Home() {
   return (
