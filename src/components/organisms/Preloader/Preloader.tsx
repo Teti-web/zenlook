@@ -53,41 +53,41 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
   return (
     <motion.section
       initial={{ y: 0, opacity: 1 }}
-      animate={{ 
-        y: isComplete ? '-100%' : 0, 
-        opacity: isComplete ? 0 : 1 
+      animate={{
+        y: isComplete ? '-100%' : 0,
+        opacity: isComplete ? 0 : 1,
       }}
-      transition={{ 
-        duration: 0.7, 
-        ease: [0.25, 0.1, 0.25, 1] 
+      transition={{
+        duration: 0.7,
+        ease: [0.25, 0.1, 0.25, 1],
       }}
-      className="bg-brand flex h-screen w-full flex-col items-start justify-end p-3.5 md:p-6 relative"
+      className="bg-brand relative flex h-screen w-full flex-col items-start justify-end p-3.5 md:p-6"
     >
-      <motion.span 
+      <motion.span
         initial={{ y: 0, opacity: 1 }}
-        animate={{ 
-          y: isComplete ? '-50px' : 0, 
-          opacity: isComplete ? 0 : 1 
+        animate={{
+          y: isComplete ? '-50px' : 0,
+          opacity: isComplete ? 0 : 1,
         }}
-        transition={{ 
-          duration: 0.6, 
+        transition={{
+          duration: 0.6,
           ease: [0.25, 0.1, 0.25, 1],
-          delay: isComplete ? 0.1 : 0
+          delay: isComplete ? 0.1 : 0,
         }}
         className="text-link font-regular text-4xl italic md:text-[45px]"
       >
         {percentage.toString().padStart(2, '0')}%
       </motion.span>
-      <motion.p 
+      <motion.p
         initial={{ y: 0, opacity: 1 }}
-        animate={{ 
-          y: isComplete ? '-30px' : 0, 
-          opacity: isComplete ? 0 : 1 
+        animate={{
+          y: isComplete ? '-30px' : 0,
+          opacity: isComplete ? 0 : 1,
         }}
-        transition={{ 
-          duration: 0.8, 
+        transition={{
+          duration: 0.8,
           ease: [0.25, 0.1, 0.25, 1],
-          delay: isComplete ? 0.05 : 0
+          delay: isComplete ? 0.05 : 0,
         }}
         className="text-gradient-red flex w-dvw items-center text-[56px] leading-[268.15px] tracking-[-0.06em] uppercase transition-all duration-500 ease-out md:text-[233px]"
       >

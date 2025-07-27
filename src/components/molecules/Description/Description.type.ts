@@ -7,4 +7,5 @@ export type DescriptionProps = {
   title?: HeadingProps;
   boldText?: string;
   variant?: 'primary' | 'secondary';
+  isAnimated?: boolean;
 };
