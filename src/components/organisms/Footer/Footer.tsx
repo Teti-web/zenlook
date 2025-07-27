@@ -5,21 +5,17 @@ import { motion, useInView } from 'framer-motion';
 import Link from '@/components/atoms/Link/Link';
 import { FooterProps } from './Footer.type';
 import { FC, useRef } from 'react';
-const Footer: FC<FooterProps> = ({ links, description, mail }) => {
+const Footer: FC<FooterProps> = ({ links, mail }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <footer
-      className="grid-area-footer border-hover-stroke mx-3 border-x pb-2 md:mx-6 md:w-full lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]"
+      className="grid-area-footer border-hover-stroke relative mx-3 border-x pb-2 md:mx-6 md:w-full lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]"
       ref={ref}
     >
-      <p className="text-brand font-regular after::block after:bg-hover-stroke w-fit font-sans text-sm uppercase after:mb-2 after:block after:h-[1px] after:w-full md:text-lg">
-        Contact us
-      </p>
-      <p className="text-secondary max-w-80 pt-11 text-2xl font-semibold md:max-w-[532px] md:pt-5 md:text-[40px]">
-        {description}
-      </p>
+      <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block" />
+      <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block" />
       <div className="grid-footer-layout md:pt-8">
         <div className="grid-footer-mail flex w-max flex-col gap-4">
           <Link
