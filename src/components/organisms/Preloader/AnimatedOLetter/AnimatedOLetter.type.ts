@@ -3,4 +3,5 @@ export interface AnimatedOLetterProps {
   isVisible: boolean;
   shift: number;
   isMobile?: boolean;
+  isAccumulationPhase?: boolean;
 }

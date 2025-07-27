@@ -3,22 +3,56 @@
 import { AnimatedOLetterProps } from './AnimatedOLetter.type';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const AnimatedOLetter = ({ index, isVisible, shift, isMobile = false }: AnimatedOLetterProps) => {
+const AnimatedOLetter = ({
+  index,
+  isVisible,
+  shift,
+  isMobile = false,
+  isAccumulationPhase = false,
+}: AnimatedOLetterProps) => {
   if (!isVisible) return null;
 
   return (
     <motion.span
-      initial={{ opacity: 0, x: isMobile ? 10 : 20, scale: 0.3 }}
-      animate={{ opacity: 1, x: shift, scale: 1 }}
-      exit={{ opacity: 0, x: isMobile ? 10 : 20, scale: 0.3 }}
-      transition={{
-        duration: isMobile ? 0.4 : 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        delay: (index - 2) * (isMobile ? 0.1 : 0.15),
+      initial={{
+        opacity: 0,
+        x: 0,
+        scale: 0.9,
       }}
-      className="text-gradient-red inline-block"
+      animate={{
+        opacity: 1,
+        x: isAccumulationPhase ? 0 : shift,
+        scale: 1,
+      }}
+      exit={{
+        opacity: 0,
+        x: 0,
+        scale: 0.9,
+      }}
+      transition={{
+        opacity: {
+          duration: 0.4,
+          delay: (index - 2) * 0.2,
+          ease: 'easeOut',
+        },
+        x: {
+          duration: isAccumulationPhase ? 0.4 : 1.2,
+          ease: isAccumulationPhase ? 'easeOut' : [0.22, 1, 0.36, 1],
+          delay: isAccumulationPhase ? (index - 2) * 0.15 : (index - 2) * 0.1,
+        },
+        scale: {
+          duration: 0.5,
+          delay: (index - 2) * 0.2,
+          ease: 'easeOut',
+        },
+      }}
+      className="text-gradient-red absolute inline-block"
       style={{
-        zIndex: index + 10,
+        zIndex: isAccumulationPhase ? 20 - index : index + 10,
+        transformOrigin: 'left center',
+        position: 'absolute',
+        left: 0,
+        top: 0,
       }}
     >
       o

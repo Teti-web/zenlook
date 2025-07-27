@@ -1,9 +1,9 @@
 'use client';
 import Description from '@/components/molecules/Description/Description';
 import Image from '@/components/atoms/Image/Image';
+import { motion, useInView } from 'framer-motion';
 import type { IntroProps } from './Intro.type';
 import { FC, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 
 const Intro: FC<IntroProps> = ({ description, label }) => {
   const ref = useRef(null);
@@ -21,7 +21,7 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
           <Description {...description} variant="secondary" isAnimated={true} />
         </div>
       </div>
-      
+
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
@@ -29,15 +29,19 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
         className="absolute top-120 left-[-3.59px] h-auto w-60 md:top-[356.79px] md:left-[-3px] md:w-[417px]"
       >
         <motion.div
-          animate={isInView ? {
-            y: [-10, 10, -10],
-            x: [-5, 5, -5],
-          } : {}}
+          animate={
+            isInView
+              ? {
+                  y: [-10, 10, -10],
+                  x: [-5, 5, -5],
+                }
+              : {}
+          }
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.8
+            ease: 'easeInOut',
+            delay: 0.8,
           }}
         >
           <Image
@@ -58,16 +62,20 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
         className="absolute top-3 left-[-3.59px] h-auto w-32 lg:top-[-117px] lg:left-[20.83vw] lg:w-[344px]"
       >
         <motion.div
-          animate={isInView ? {
-            y: [-8, 12, -8],
-            x: [2, -2, 2],
-            rotate: [-2, 2, -2],
-          } : {}}
+          animate={
+            isInView
+              ? {
+                  y: [-8, 12, -8],
+                  x: [2, -2, 2],
+                  rotate: [-2, 2, -2],
+                }
+              : {}
+          }
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.9
+            ease: 'easeInOut',
+            delay: 0.9,
           }}
         >
           <Image
@@ -90,15 +98,19 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
         className="absolute top-20 right-[-32.59px] z-2 h-auto w-28 md:top-[141px] md:right-[46px] md:w-[322px]"
       >
         <motion.div
-          animate={isInView ? {
-            y: [-10, 10, -10],
-            x: [-5, 5, -5],
-          } : {}}
+          animate={
+            isInView
+              ? {
+                  y: [-10, 10, -10],
+                  x: [-5, 5, -5],
+                }
+              : {}
+          }
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.0
+            ease: 'easeInOut',
+            delay: 1.0,
           }}
         >
           <Image
@@ -119,16 +131,20 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
         className="absolute top-132 right-4 z-2 h-auto w-20 md:top-[641px] md:right-[358px] md:w-[214px]"
       >
         <motion.div
-          animate={isInView ? {
-            y: [-8, 12, -8],
-            x: [3, -3, 3],
-            rotate: [-2, 2, -2],
-          } : {}}
+          animate={
+            isInView
+              ? {
+                  y: [-8, 12, -8],
+                  x: [3, -3, 3],
+                  rotate: [-2, 2, -2],
+                }
+              : {}
+          }
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.1
+            ease: 'easeInOut',
+            delay: 1.1,
           }}
         >
           <Image
