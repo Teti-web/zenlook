@@ -11,6 +11,7 @@ const Image: FC<ImageProps> = ({
   height,
   desktopSrc,
   mobileSrc,
+  tabletSrc,
   className,
   widths = [320, 640, 960, 1280],
   quality = 75,
@@ -21,7 +22,8 @@ const Image: FC<ImageProps> = ({
 
   return (
     <picture>
-      {desktopSrc && <source media={`(min-width:768px)`} srcSet={desktopSrc} type="image/webp" />}
+      {desktopSrc && <source media={`(min-width:1024px)`} srcSet={desktopSrc} type="image/webp" />}
+      {tabletSrc && <source media={`(min-width:768px) and (max-width:1024px)`} srcSet={tabletSrc} type="image/webp" />}
       {mobileSrc && <source media={`(max-width:767px)`} srcSet={mobileSrc} type="image/webp" />}
       <NextImage
         src={src}

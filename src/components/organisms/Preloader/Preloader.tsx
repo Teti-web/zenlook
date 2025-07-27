@@ -2,6 +2,7 @@
 
 import AnimatedOLetter from './AnimatedOLetter/AnimatedOLetter';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface PreloaderProps {
   onComplete?: () => void;
@@ -32,69 +33,110 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
   }, [onComplete]);
 
   const baseVisible = 2;
-  const totalOs = 7;
+  const totalOs = 11;
 
-  const visibleOs =
-    percentage < 15
-      ? baseVisible
-      : Math.min(totalOs, baseVisible + Math.floor(((percentage - 15) / 83) * (totalOs - baseVisible)));
+  const phase1End = 30;
+  const isAccumulationPhase = percentage <= phase1End;
 
+  const visibleOs = Math.min(totalOs, baseVisible + Math.floor((percentage / 80) * (totalOs - baseVisible)));
   const hasNewOs = visibleOs > baseVisible;
 
-  // Responsive зсуви для mobile та desktop
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const secondOShift = isMobile ? -20 : -40;
-  const kShiftMultiplier = isMobile ? -20 : -40;
-  const animatedOShiftBase = isMobile ? -30 : -80;
-  const animatedOShiftStep = isMobile ? 25 : 50;
 
-  const kShift = Math.max(0, visibleOs - baseVisible) * kShiftMultiplier;
+  const kShiftMultiplier = isMobile ? 35 : 40;
+
+  const animatedOShiftBase = isAccumulationPhase ? 0 : isMobile ? 30 : 100;
+  const animatedOShiftStep = isAccumulationPhase ? 0 : isMobile ? 30 : 60;
+
+  const kShift = Math.max(0, visibleOs - baseVisible) * (isAccumulationPhase ? 0 : kShiftMultiplier);
 
   return (
-    <section
-      className={`bg-brand flex h-screen w-full flex-col items-start justify-end p-3.5 transition-opacity duration-500 md:p-6 ${
-        isComplete ? 'opacity-0' : 'opacity-100'
-      }`}
+    <motion.section
+      initial={{ y: 0, opacity: 1 }}
+      animate={{
+        y: isComplete ? '-100%' : 0,
+        opacity: isComplete ? 0 : 1,
+      }}
+      transition={{
+        duration: 0.7,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+      className="bg-brand relative flex h-screen w-full flex-col items-start justify-end p-3.5 md:p-6"
     >
-      <span className="text-link font-regular text-4xl italic md:text-[45px]">
+      <motion.span
+        initial={{ y: 0, opacity: 1 }}
+        animate={{
+          y: isComplete ? '-50px' : 0,
+          opacity: isComplete ? 0 : 1,
+        }}
+        transition={{
+          duration: 0.6,
+          ease: [0.25, 0.1, 0.25, 1],
+          delay: isComplete ? 0.1 : 0,
+        }}
+        className="text-link font-regular text-4xl italic md:text-[45px]"
+      >
         {percentage.toString().padStart(2, '0')}%
-      </span>
-      <p className="text-gradient-red flex w-dvw items-center text-[56px] leading-[268.15px] tracking-[-0.06em] uppercase transition-all duration-500 ease-out md:text-[233px]">
+      </motion.span>
+      <motion.p
+        initial={{ y: 0, opacity: 1 }}
+        animate={{
+          y: isComplete ? '-30px' : 0,
+          opacity: isComplete ? 0 : 1,
+        }}
+        transition={{
+          duration: 0.8,
+          ease: [0.25, 0.1, 0.25, 1],
+          delay: isComplete ? 0.05 : 0,
+        }}
+        className="text-gradient-red flex w-dvw items-center text-[56px] leading-[268.15px] tracking-[-0.06em] uppercase transition-all duration-500 ease-out md:text-[233px]"
+      >
         <span>zenl</span>
-        <span>o</span>
-        <span
-          className="text-gradient-red inline-block transition-transform duration-500 ease-out"
-          style={{
-            transform: `translateX(${hasNewOs ? secondOShift : 0}px)`,
+        <span className="relative inline-block">
+          <span className="text-gradient-red">o</span>
+          {Array.from({ length: totalOs - baseVisible }).map((_, index) => {
+            const realIndex = index + baseVisible;
+            const isVisible = realIndex < visibleOs;
+            const shift = animatedOShiftBase + index * animatedOShiftStep;
+            return (
+              <AnimatedOLetter
+                key={realIndex}
+                index={realIndex}
+                isVisible={isVisible}
+                shift={shift}
+                isMobile={isMobile}
+                isAccumulationPhase={isAccumulationPhase}
+              />
+            );
+          })}
+        </span>
+        <motion.span
+          initial={{ x: 0 }}
+          animate={{ x: kShift }}
+          transition={{
+            duration: 0.8,
+            ease: [0.34, 1.56, 0.64, 1],
+            delay: 0.05,
           }}
+          className="text-gradient-red inline-block transition-transform ease-out"
         >
           o
-        </span>
-        {Array.from({ length: totalOs - baseVisible }).map((_, index) => {
-          const realIndex = index + baseVisible;
-          const isVisible = realIndex < visibleOs;
-          const shift = animatedOShiftBase - index * animatedOShiftStep;
-          return (
-            <AnimatedOLetter
-              key={realIndex}
-              index={realIndex}
-              isVisible={isVisible}
-              shift={shift}
-              isMobile={isMobile}
-            />
-          );
-        })}
-        <span
-          className="text-gradient-red inline-block w-max transition-transform duration-500 ease-out"
-          style={{
-            transform: `translateX(${kShift}px)`,
-            willChange: 'transform',
+        </motion.span>
+
+        <motion.span
+          initial={{ x: 0 }}
+          animate={{ x: kShift }}
+          transition={{
+            duration: 0.8,
+            ease: [0.34, 1.56, 0.64, 1],
+            delay: 0.05,
           }}
+          className="text-gradient-red inline-block w-max ease-out"
         >
           k
-        </span>
-      </p>
-    </section>
+        </motion.span>
+      </motion.p>
+    </motion.section>
   );
 };
 
