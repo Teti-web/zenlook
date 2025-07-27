@@ -1,13 +1,19 @@
 'use client';
 
 import Image from '@/components/atoms/Image/Image';
+import { motion, useInView } from 'framer-motion';
 import Link from '@/components/atoms/Link/Link';
 import { FooterProps } from './Footer.type';
-import { motion } from 'framer-motion';
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 const Footer: FC<FooterProps> = ({ links, description, mail }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
-    <footer className="grid-area-footer border-hover-stroke mx-3 border-x pb-2 md:mx-6 md:w-full lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]">
+    <footer
+      className="grid-area-footer border-hover-stroke mx-3 border-x pb-2 md:mx-6 md:w-full lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]"
+      ref={ref}
+    >
       <p className="text-brand font-regular after::block after:bg-hover-stroke w-fit font-sans text-sm uppercase after:mb-2 after:block after:h-[1px] after:w-full md:text-lg">
         Contact us
       </p>
@@ -33,11 +39,15 @@ const Footer: FC<FooterProps> = ({ links, description, mail }) => {
         <div className="grid-footer-logo relative mt-7 mb-6 md:mt-20 md:mb-0">
           <Image src={'/images/logo-big.svg'} alt="logo" width={1380} height={360} className="h-auto w-full" />
           <motion.div
-            animate={{
-              y: [-8, 12, -8],
-              x: [2, -2, 2],
-              rotate: [-2, 2, -2],
-            }}
+            animate={
+              isInView
+                ? {
+                    y: [-8, 12, -8],
+                    x: [2, -2, 2],
+                    rotate: [-2, 2, -2],
+                  }
+                : {}
+            }
             transition={{
               duration: 4,
               repeat: Infinity,
