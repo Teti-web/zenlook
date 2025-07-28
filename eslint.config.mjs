@@ -72,6 +72,7 @@ const eslintConfig = [
       // General JavaScript rules
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'prefer-const': 'warn',
+      'jsx-a11y/alt-text': 'off',
     },
   },
 

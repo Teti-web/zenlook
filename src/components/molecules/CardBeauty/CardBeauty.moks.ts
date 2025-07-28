@@ -28,3 +28,15 @@ export const cardBeatyBenefits: CardBeautyProps = {
   title: 'Mobile Professionals',
   description: 'Take bookings anywhere, sync your schedule across multiple locations',
 };
+
+export const cardBeatyManage: CardBeautyProps = {
+  variant: 'beauty-manage',
+  image: {
+    src: 'https://picsum.photos/id/16/2500/1667.jpg',
+    alt: 'Card Beauty Image',
+    width: 450,
+    height: 600,
+  },
+  title: 'Mobile Professionals',
+  description: 'Take bookings anywhere, sync your schedule across multiple locations',
+};

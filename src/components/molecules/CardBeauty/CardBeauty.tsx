@@ -37,16 +37,23 @@ const CardBeauty: FC<CardBeautyProps> = ({ image, variant, title, description, p
       );
     case 'beauty-manage':
       return (
-        <div className="bg-gradient-red flex flex-col">
-          <div></div>
-          <Image {...image} />
+        <div
+          className={`${cardClassName} bg-gradient-red-blur gap-4 overflow-hidden px-4 pt-4 md:gap-6 md:px-8 md:pt-8`}
+        >
+          <div className="flex flex-col gap-1.5 md:gap-3">
+            <p className="text-content-inverce font-sans text-base leading-none font-semibold md:text-2xl">{title}</p>
+            <p className="text-content-inverce font-regular font-sans text-[10px] md:max-w-[275px] md:text-sm">
+              {description}
+            </p>
+          </div>
+          <Image {...image} className="h-full w-full rounded-t-2xl object-cover" />
         </div>
       );
     case 'beauty-benefits':
       return (
         <div className={cardClassName}>
           <Image {...image} className="h-full w-full object-cover" />
-          <div className="border-content-inverce absolute flex h-[90%] w-[90%] flex-col items-start justify-end rounded-xl border md:top-7 md:left-7 md:max-h-[471px] md:max-w-[390px] md:gap-6 md:rounded-2xl md:p-4">
+          <div className="border-content-inverce absolute top-3 left-3 flex h-[90%] w-[90%] flex-col items-start justify-end gap-4 rounded-xl border p-3 md:top-7 md:left-7 md:max-h-[471px] md:max-w-[390px] md:gap-6 md:rounded-2xl md:p-4">
             <p className="text-content-inverce font-sans text-sm leading-none font-semibold md:text-2xl">{title}</p>
             <p className="text-content-inverce font-regular font-sans text-[10px] tracking-wider md:max-w-[270px] md:text-sm">
               {description}

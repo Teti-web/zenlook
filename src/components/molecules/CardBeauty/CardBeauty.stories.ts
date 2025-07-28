@@ -1,4 +1,4 @@
-import { cardBeatyBenefits, cardBeatyProfesional } from './CardBeauty.moks';
+import { cardBeatyBenefits, cardBeatyManage, cardBeatyProfesional } from './CardBeauty.moks';
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import CardBeauty from './CardBeauty';
 const meta = {
@@ -17,4 +17,8 @@ export const BeautyProfessional: Story = {
 
 export const BeautyBenefits: Story = {
   args: cardBeatyBenefits,
+};
+
+export const BeautyManage: Story = {
+  args: cardBeatyManage,
 };
