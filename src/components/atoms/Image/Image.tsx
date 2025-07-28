@@ -21,7 +21,7 @@ const Image: FC<ImageProps> = ({
   const sizes = widths.map((w) => `${w}px`).join(', ');
 
   return (
-    <picture>
+    <picture className={className}>
       {desktopSrc && <source media={`(min-width:1024px)`} srcSet={desktopSrc} type="image/webp" />}
       {tabletSrc && <source media={`(min-width:768px) and (max-width:1024px)`} srcSet={tabletSrc} type="image/webp" />}
       {mobileSrc && <source media={`(max-width:767px)`} srcSet={mobileSrc} type="image/webp" />}
