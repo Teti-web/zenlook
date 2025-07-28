@@ -1,6 +1,7 @@
 import { cardBeatyBenefits, cardBeatyManage, cardBeatyProfesional } from './CardBeauty.moks';
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import CardBeauty from './CardBeauty';
+
 const meta = {
   title: 'Molecules/CardBeauty',
   component: CardBeauty,

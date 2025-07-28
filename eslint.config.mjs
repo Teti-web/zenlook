@@ -73,6 +73,7 @@ const eslintConfig = [
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'prefer-const': 'warn',
       'jsx-a11y/alt-text': 'off',
+      'storybook/story-exports': 'off',
     },
   },
 
