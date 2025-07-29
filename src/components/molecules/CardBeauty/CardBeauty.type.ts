@@ -6,7 +6,7 @@ export type PersonalInfo = {
   name: string;
   profesional: string;
   description: string;
-  rating: number;
+  rating: string;
   progress: string;
 };
 

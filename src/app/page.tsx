@@ -1,5 +1,6 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
+import Appointment from '@/components/organisms/Appointment/Appointment';
 import Description from '@/components/molecules/Description/Description';
 import AutoSlider from '@/components/molecules/AutoSlider/AutoSlider';
 import Anagraph from '@/components/molecules/Anagraph/Anagraph';
@@ -146,6 +147,87 @@ export default function Home() {
               height: 54,
             },
           ]}
+        />
+        <Appointment
+          label={{
+            text: 'Who is it for?',
+          }}
+          title={{
+            text: 'Built for Every Beauty Professional',
+          }}
+          description="From setup to daily use — discover how easy it is to run your beauty business smarter"
+          slider={{
+            items: [
+              {
+                image: {
+                  src: '/images/appointment-1.png',
+                  alt: 'Appointment 1',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-professional',
+                personalInfo: {
+                  name: 'Amelia Potter',
+                  profesional: 'Freelancers',
+                  description: 'Customers for nail services',
+                  rating: '1,250',
+                  progress: '80%',
+                },
+              },
+              {
+                image: {
+                  src: '/images/appointment-1.png',
+                  alt: 'Appointment 1',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-professional',
+                personalInfo: {
+                  name: 'Amelia Potter',
+                  profesional: 'Freelancers',
+                  description: 'Customers for nail services',
+                  rating: '1,250',
+                  progress: '80%',
+                },
+              },
+              {
+                image: {
+                  src: '/images/appointment-1.png',
+                  alt: 'Appointment 1',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-professional',
+                personalInfo: {
+                  name: 'Amelia Potter',
+                  profesional: 'Freelancers',
+                  description: 'Customers for nail services',
+                  rating: '1,250',
+                  progress: '80%',
+                },
+              },
+              {
+                image: {
+                  src: '/images/appointment-1.png',
+                  alt: 'Appointment 1',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-professional',
+                personalInfo: {
+                  name: 'Amelia Potter',
+                  profesional: 'Freelancers',
+                  description: 'Customers for nail services',
+                  rating: '1,250',
+                  progress: '80%',
+                },
+              },
+            ],
+          }}
         />
         <Anagraph
           title="Contact us"
