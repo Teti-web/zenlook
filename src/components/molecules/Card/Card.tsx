@@ -20,9 +20,9 @@ const Card: FC<CardProps> = ({
 
   const translateClass =
     translate === 'top'
-      ? 'md:absolute md:-top-87 md:left-8'
+      ? 'lg:absolute lg:-top-87 lg:left-8'
       : translate === 'middle'
-        ? 'md:absolute md:-top-40 md:right-8'
+        ? 'lg:absolute lg:-top-40 lg:right-8'
         : ' ';
   return (
     <div

@@ -41,11 +41,13 @@ const Description: FC<DescriptionProps> = ({
           animate={isAnimated && isInView ? { opacity: 1, y: 0 } : isAnimated ? { opacity: 0, y: 20 } : false}
           transition={isAnimated ? { duration: 0.6, delay: 0.1 } : undefined}
         >
-          <p className="text-secondary text-2xl font-semibold md:max-w-[835px] md:text-[40px]">{boldText}</p>
+          <p className="text-secondary text-2xl font-semibold md:max-w-[400px] md:text-[32px] lg:max-w-[835px] lg:text-[40px]">
+            {boldText}
+          </p>
         </motion.div>
       )}
 
-      <div className={`${variantClassText} flex flex-col gap-10 md:max-w-[380px] md:gap-7`}>
+      <div className={`${variantClassText} flex flex-col gap-10 md:max-w-[280px] md:gap-7 lg:max-w-[380px]`}>
         <motion.div
           initial={isAnimated ? { opacity: 0, y: 20 } : false}
           animate={isAnimated && isInView ? { opacity: 1, y: 0 } : isAnimated ? { opacity: 0, y: 20 } : false}
