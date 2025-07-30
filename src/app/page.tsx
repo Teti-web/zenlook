@@ -1,5 +1,6 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
+import Appointment from '@/components/organisms/Appointment/Appointment';
 import Description from '@/components/molecules/Description/Description';
 import AutoSlider from '@/components/molecules/AutoSlider/AutoSlider';
 import Anagraph from '@/components/molecules/Anagraph/Anagraph';
@@ -110,7 +111,7 @@ export default function Home() {
                   alt: 'Calendar Client 2',
                   width: 125,
                   height: 69,
-                  className: 'top-31 -left-10',
+                  className: 'top-20 -left-8',
                 },
               ],
             },
@@ -146,6 +147,77 @@ export default function Home() {
               height: 54,
             },
           ]}
+        />
+        <Appointment
+          label={{
+            text: 'Who is it for?',
+          }}
+          title={{
+            text: 'Built for Every Beauty Professional',
+          }}
+          description="From setup to daily use — discover how easy it is to run your beauty business smarter"
+          slider={{
+            items: [
+              {
+                image: {
+                  src: '/images/appointment-1.png',
+                  alt: 'Appointment 1',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-professional',
+                personalInfo: {
+                  name: 'Amelia Potter',
+                  profesional: 'Freelancers',
+                  description: 'Customers for nail services',
+                  rating: '1,250',
+                  progress: '+15.80%',
+                },
+              },
+              {
+                image: {
+                  src: '/images/appointment-2.png',
+                  alt: 'Appointment 2',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-manage',
+                title: 'Salons & Barbershops',
+                description: 'Manage teams, track revenue, and simplify appointments',
+              },
+              {
+                image: {
+                  src: '/images/appointment-3.png',
+                  alt: 'Appointment 3',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-professional',
+                personalInfo: {
+                  name: 'Andrew Mac',
+                  profesional: 'Barbershop owner',
+                  description: 'Followers gained this post',
+                  rating: '850',
+                  progress: '+65.50%',
+                },
+              },
+              {
+                image: {
+                  src: '/images/appointment-4.png',
+                  alt: 'Appointment 1',
+                  width: 450,
+                  height: 512,
+                  quality: 80,
+                },
+                variant: 'beauty-benefits',
+                title: 'Mobile Professionals',
+                description: 'Take bookings anywhere, sync your schedule across multiple locations',
+              },
+            ],
+          }}
         />
         <Anagraph
           title="Contact us"

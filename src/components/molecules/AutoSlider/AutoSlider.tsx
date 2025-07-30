@@ -10,12 +10,11 @@ const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
   const controls = useAnimation();
 
   useEffect(() => {
-    // Запускаємо анімацію
     const startAnimation = () => {
       controls.start({
         x: `-${50}%`,
         transition: {
-          duration: items.length * 8,
+          duration: items.length * 4,
           ease: 'linear',
           repeat: Infinity,
           repeatType: 'loop',
@@ -34,7 +33,7 @@ const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
     controls.start({
       x: `-${50}%`,
       transition: {
-        duration: items.length * 8,
+        duration: items.length * 4,
         ease: 'linear',
         repeat: Infinity,
         repeatType: 'loop',
@@ -58,7 +57,7 @@ const AutoSlider: FC<AutoSliderProps> = ({ label, items }) => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{
-                duration: 0.8,
+                duration: 0.6,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
               className="max-w-[250px] flex-shrink-0 md:max-w-[450px]"

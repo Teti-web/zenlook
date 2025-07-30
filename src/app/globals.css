@@ -12,6 +12,7 @@
   --content-inverce-blur: ##fafafa33;
   --notice: #807978;
   --peach: #f59179;
+  --green: #41dc9c;
   --gradient-red-100: linear-gradient(90deg, #c41e28 0%, #f59179 100%);
   --gradient-red: linear-gradient(92.86deg, #f8b3a2 3.43%, #ee4217 115.82%);
   --gradient-red-blur: linear-gradient(154.68deg, #fdac9f 37.14%, #ee4217 90.08%);
@@ -32,6 +33,7 @@
   --color-hover-stroke: var(--hover-stroke);
   --color-content-inverce-blur: var(--content-inverce-blur);
   --color-peach: var(--peach);
+  --color-green: var(--green);
   --color-primary-stroke: var(--primary-stroke);
   --color-notice: var(--notice);
   --color-gradient-red-100: var(--gradient-red-100);
