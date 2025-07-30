@@ -3,10 +3,13 @@
 import CardBeauty from '@/components/molecules/CardBeauty/CardBeauty';
 import { CardBeautyProps } from '../CardBeauty/CardBeauty.type';
 import { FC, useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { SliderProps } from './Slider.type';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Slider: FC<SliderProps> = ({ items }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -19,7 +22,9 @@ const Slider: FC<SliderProps> = ({ items }) => {
 
   const slideWidth = 100 / slidesToShow;
 
-  const slides = hasShownPlaceholder ? ['placeholder', ...items, ...clonedSlides] : [...items, ...clonedSlides];
+  // Для мобілки не використовуємо placeholder
+  const shouldUsePlaceholder = hasShownPlaceholder && slidesToShow >= 2;
+  const slides = shouldUsePlaceholder ? ['placeholder', ...items, ...clonedSlides] : [...items, ...clonedSlides];
 
   const totalSlides = items.length;
 
@@ -65,7 +70,7 @@ const Slider: FC<SliderProps> = ({ items }) => {
   }, [isPlaying]);
 
   useEffect(() => {
-    if (currentIndex === totalSlides + 1) {
+    if (slidesToShow >= 2 && currentIndex === totalSlides + 1) {
       if (hasShownPlaceholder) {
         setHasShownPlaceholder(false);
         setCurrentIndex(1);
@@ -74,8 +79,20 @@ const Slider: FC<SliderProps> = ({ items }) => {
           setCurrentIndex(0);
         }, 50);
       }
+    } else if (slidesToShow < 2 && currentIndex >= totalSlides) {
+      setTimeout(() => {
+        setCurrentIndex(0);
+      }, 50);
     }
-  }, [currentIndex, totalSlides, hasShownPlaceholder]);
+  }, [currentIndex, totalSlides, hasShownPlaceholder, slidesToShow]);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => prev - 1);
+  };
 
   const handleMouseEnter = () => setIsPlaying(false);
   const handleMouseLeave = () => {
@@ -85,11 +102,12 @@ const Slider: FC<SliderProps> = ({ items }) => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden"
+      className="relative flex w-full flex-col gap-6 overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
+        ref={ref}
         className="flex"
         animate={{ x: `-${currentIndex * slideWidth}%` }}
         transition={{
@@ -103,16 +121,16 @@ const Slider: FC<SliderProps> = ({ items }) => {
             className="flex-shrink-0"
             style={{
               width: `${slideWidth}%`,
-              paddingLeft: '8px',
-              paddingRight: '8px',
+              paddingLeft: slidesToShow < 2 ? '0px' : '8px',
+              paddingRight: slidesToShow < 2 ? '0px' : '8px',
             }}
             initial={{ opacity: 0, scaleY: 0.8 }}
-            animate={{ opacity: 1, scaleY: 1 }}
+            animate={isInView ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0.8 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="mx-auto max-w-[450px]">
+            <div className={slidesToShow < 2 ? 'w-full' : 'md:mx-auto md:max-w-[450px]'}>
               {item === 'placeholder' ? (
-                <div className="h-full w-full rounded-2xl bg-gray-200 shadow-inner" />
+                <div className="hidden h-full w-full rounded-2xl bg-gray-200 shadow-inner md:block" />
               ) : (
                 <CardBeauty {...(item as CardBeautyProps)} />
               )}
@@ -120,6 +138,20 @@ const Slider: FC<SliderProps> = ({ items }) => {
           </motion.div>
         ))}
       </motion.div>
+      <div className="flex gap-4 md:hidden">
+        <button
+          className="bg-link inset-shadow-yellow flex h-11 w-11 items-center justify-center rounded-full"
+          onClick={handlePrev}
+        >
+          <Image src="/images/icons/arrow-white.svg" alt="arrow-left" width={14} height={17} className="rotate-180" />
+        </button>
+        <button
+          className="bg-link inset-shadow-yellow flex h-11 w-11 items-center justify-center rounded-full"
+          onClick={handleNext}
+        >
+          <Image src="/images/icons/arrow-white.svg" alt="arrow-right" width={14} height={17} />
+        </button>
+      </div>
     </div>
   );
 };

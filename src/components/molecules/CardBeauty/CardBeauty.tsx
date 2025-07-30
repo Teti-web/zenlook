@@ -53,7 +53,7 @@ const CardBeauty: FC<CardBeautyProps> = ({ image, variant, title, description, p
       return (
         <div className={cardClassName}>
           <Image {...image} className="h-full w-full object-cover" />
-          <div className="border-content-inverce absolute top-3 left-3 flex h-[90%] w-[90%] flex-col items-start justify-end gap-4 rounded-xl border p-3 md:top-7 md:left-7 md:max-h-[471px] md:max-w-[390px] md:gap-4 md:rounded-2xl md:p-4">
+          <div className="border-content-inverce absolute top-3 left-3 flex h-[90%] w-[90%] flex-col items-start justify-end gap-1 rounded-xl border p-3 md:top-7 md:left-7 md:max-h-[471px] md:max-w-[390px] md:gap-4 md:rounded-2xl md:p-4">
             <p className="text-content-inverce font-sans text-sm leading-none font-semibold md:text-2xl">{title}</p>
             <p className="text-content-inverce font-regular font-sans text-[10px] tracking-wider md:max-w-[270px] md:text-sm">
               {description}

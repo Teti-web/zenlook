@@ -127,7 +127,7 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
         initial={{ x: 0, opacity: 0, scale: 0.5 }}
         animate={isInView ? { x: 0, opacity: 1, scale: 1 } : { x: 0, opacity: 0, scale: 0.5 }}
         transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
-        className="absolute top-132 right-4 z-2 h-auto w-20 md:top-[641px] md:right-[358px] md:w-[214px]"
+        className="absolute top-132 right-4 z-2 h-auto w-20 md:top-[611px] md:right-[75px] md:w-[214px] lg:top-[641px] lg:right-[358px]"
       >
         <motion.div
           animate={

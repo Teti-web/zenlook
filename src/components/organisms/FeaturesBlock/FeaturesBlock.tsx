@@ -41,11 +41,11 @@ const FeaturesBlock: FC<FeaturesBlockProps> = ({ label, title, features }) => {
       >
         <Heading
           {...title}
-          className="text-gradient-red text-center text-[44px] leading-none md:text-[112px] md:leading-[92px]"
+          className="text-gradient-red text-center text-[44px] leading-none md:text-[92px] md:leading-[92px] lg:text-[112px]"
         />
         <Label {...label} />
       </motion.div>
-      <div className="relative flex flex-col items-center justify-center gap-5 md:flex-row md:gap-8">
+      <div className="relative flex flex-col items-center justify-center gap-5 md:gap-8 lg:flex-row">
         {features.map((feature) => (
           <Card key={feature.decorativeNumber} {...feature} />
         ))}

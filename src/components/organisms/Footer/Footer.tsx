@@ -24,7 +24,7 @@ const Footer: FC<FooterProps> = ({ links, mail }) => {
           >
             {mail}
             <Image
-              className="-rotate-135 transition-all duration-300 group-hover:scale-125"
+              className="rotate-119 transition-all duration-300 group-hover:scale-125"
               src={'/images/icons/arrow.svg'}
               alt="arrow"
               width={19}

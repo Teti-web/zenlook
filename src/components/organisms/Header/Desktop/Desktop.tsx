@@ -7,7 +7,7 @@ import { FC } from 'react';
 const Desktop: FC<DesktopProps> = ({ logo, firstColumn, secondColumn }) => {
   return (
     <header className="grid-area-header mx-auto flex w-full flex-row items-center justify-between pt-2.5 md:px-6 lg:max-w-[1216px] lg:px-0 xl:max-w-[1376px]">
-      <div className="flex flex-row items-center justify-start gap-4">
+      <div className="flex flex-row items-center justify-start gap-2 lg:gap-4">
         {firstColumn.links.map((link) => (
           <Link className="font-medium" key={link.href} {...link} />
         ))}
@@ -15,11 +15,11 @@ const Desktop: FC<DesktopProps> = ({ logo, firstColumn, secondColumn }) => {
       <Link href="/">
         <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
       </Link>
-      <div className="flex flex-row items-center justify-start gap-4">
+      <div className="flex flex-row items-center justify-start gap-2 lg:gap-4">
         {secondColumn.links.map((link) => (
           <Link className="font-medium" key={link.href} {...link} />
         ))}
-        <Button {...secondColumn.button} className="ml-2.5" />
+        <Button {...secondColumn.button} className="lg:ml-2.5" />
       </div>
     </header>
   );
