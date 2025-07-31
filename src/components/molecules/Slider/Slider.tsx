@@ -53,8 +53,8 @@ const Slider: FC<SliderProps> = ({ items }) => {
   }, []);
 
   useEffect(() => {
-    setIsPlaying(isVisible);
-  }, [isVisible]);
+    setIsPlaying(isVisible && isInView);
+  }, [isVisible, isInView]);
 
   useEffect(() => {
     if (isPlaying) {
@@ -96,7 +96,7 @@ const Slider: FC<SliderProps> = ({ items }) => {
 
   const handleMouseEnter = () => setIsPlaying(false);
   const handleMouseLeave = () => {
-    if (isVisible) setIsPlaying(true);
+    if (isVisible && isInView) setIsPlaying(true);
   };
 
   return (

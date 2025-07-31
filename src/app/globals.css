@@ -9,9 +9,10 @@
   --hover-stroke: #f4afbb4d;
   --primary-stroke: #c41e28;
   --content-inverce: #fafafa;
-  --content-inverce-blur: ##fafafa33;
+  --content-inverce-blur: #fafafa33;
   --notice: #807978;
   --peach: #f59179;
+  --content-secondary: #f8b3a2;
   --green: #41dc9c;
   --gradient-red-100: linear-gradient(90deg, #c41e28 0%, #f59179 100%);
   --gradient-red: linear-gradient(92.86deg, #f8b3a2 3.43%, #ee4217 115.82%);
@@ -46,6 +47,7 @@
   --inset-shadow-yellow-hover: var(--inset-shadow-yellow-hover);
   --inset-shadow-light-pink: var(--inset-shadow-light-pink);
   --inset-shadow-light-pink-hover: var(--inset-shadow-light-pink-hover);
+  --color-content-secondary: var(--content-secondary);
   --font-sans: var(--font-rethink-sans);
 }
 
