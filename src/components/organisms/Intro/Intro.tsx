@@ -13,8 +13,8 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
   return (
     <section className=" " ref={ref}>
       <div className="border-hover-stroke relative mt-2 h-dvh md:border 2xl:h-[80dvh]">
-        <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block" />
-        <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block" />
+        <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block 2xl:left-[470px]" />
+        <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block 2xl:right-[470px]" />
         <div className="absolute top-32 left-1/2 z-10 flex w-full max-w-[930px] -translate-x-1/2 flex-col items-center justify-center gap-4">
           {label && <Label text={label} />}
           <Description {...description} variant="secondary" isAnimated={true} />
@@ -58,7 +58,7 @@ const Intro: FC<IntroProps> = ({ description, label }) => {
         initial={{ y: -100, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
-        className="absolute top-3 left-[-3.59px] h-auto w-32 lg:top-[-117px] lg:left-[300px] lg:w-[344px]"
+        className="absolute top-3 left-[-3.59px] h-auto w-32 lg:top-[-117px] lg:left-[20.83vw] lg:w-[304px] 2xl:top-[-117px] 2xl:left-[27.78vw] 2xl:w-[344px]"
       >
         <motion.div
           animate={

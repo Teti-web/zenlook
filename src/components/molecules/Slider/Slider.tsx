@@ -2,8 +2,9 @@
 
 import CardBeauty from '@/components/molecules/CardBeauty/CardBeauty';
 import { CardBeautyProps } from '../CardBeauty/CardBeauty.type';
+import { motion, useInView, PanInfo } from 'framer-motion';
 import { FC, useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { SliderProps } from './Slider.type';
 import Image from 'next/image';
 
@@ -15,6 +16,8 @@ const Slider: FC<SliderProps> = ({ items }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [slidesToShow, setSlidesToShow] = useState(1);
   const [hasShownPlaceholder, setHasShownPlaceholder] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
+  const { isDesktop, isTablet, isMobile } = useBreakpoint();
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -22,27 +25,20 @@ const Slider: FC<SliderProps> = ({ items }) => {
 
   const slideWidth = 100 / slidesToShow;
 
-  // Для мобілки не використовуємо placeholder
   const shouldUsePlaceholder = hasShownPlaceholder && slidesToShow >= 2;
   const slides = shouldUsePlaceholder ? ['placeholder', ...items, ...clonedSlides] : [...items, ...clonedSlides];
 
   const totalSlides = items.length;
 
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width >= 1024) {
-        setSlidesToShow(3);
-      } else if (width >= 768) {
-        setSlidesToShow(2);
-      } else {
-        setSlidesToShow(1.3);
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    if (isDesktop) {
+      setSlidesToShow(3);
+    } else if (isTablet) {
+      setSlidesToShow(2);
+    } else {
+      setSlidesToShow(1.3);
+    }
+  }, [isDesktop, isTablet]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.3 });
@@ -53,14 +49,14 @@ const Slider: FC<SliderProps> = ({ items }) => {
   }, []);
 
   useEffect(() => {
-    setIsPlaying(isVisible && isInView);
-  }, [isVisible, isInView]);
+    setIsPlaying(isVisible && isInView && !isDragging);
+  }, [isVisible, isInView, isDragging]);
 
   useEffect(() => {
     if (isPlaying) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prev) => prev + 1);
-      }, 2000);
+      }, 1500);
     } else if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
@@ -94,26 +90,43 @@ const Slider: FC<SliderProps> = ({ items }) => {
     setCurrentIndex((prev) => prev - 1);
   };
 
-  const handleMouseEnter = () => setIsPlaying(false);
-  const handleMouseLeave = () => {
-    if (isVisible && isInView) setIsPlaying(true);
+  const handleDragStart = () => {
+    if (isDesktop) {
+      setIsDragging(true);
+    }
+  };
+
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    setIsDragging(false);
+
+    if (isDesktop) {
+      const threshold = 50;
+      setIsPlaying(false);
+
+      if (info.offset.x > threshold) {
+        handlePrev();
+      } else if (info.offset.x < -threshold) {
+        handleNext();
+      }
+    }
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="relative flex w-full flex-col gap-6 overflow-hidden"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div ref={containerRef} className="relative flex w-full flex-col gap-6 overflow-hidden">
       <motion.div
         ref={ref}
-        className="flex"
+        className={`flex ${isDesktop ? 'cursor-grab active:cursor-grabbing' : ''}`}
         animate={{ x: `-${currentIndex * slideWidth}%` }}
         transition={{
-          duration: 0.5,
+          duration: isDragging ? 0 : 0.5,
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
+        drag={isDesktop ? 'x' : false}
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.1}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        dragMomentum={false}
       >
         {slides.map((item, index) => (
           <motion.div

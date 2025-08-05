@@ -14,8 +14,8 @@ const Footer: FC<FooterProps> = ({ links, mail }) => {
       className="grid-area-footer border-hover-stroke relative mx-3 border-x pb-2 md:mx-6 md:w-full lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]"
       ref={ref}
     >
-      <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block" />
-      <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block" />
+      <span className="bg-hover-stroke absolute top-0 left-[32.36vw] hidden h-full w-[1px] md:block 2xl:left-[470px]" />
+      <span className="bg-hover-stroke absolute top-0 right-[32.36vw] hidden h-full w-[1px] md:block 2xl:right-[470px]" />
       <div className="grid-footer-layout md:pt-8">
         <div className="grid-footer-mail flex w-max flex-col gap-4">
           <Link
@@ -50,7 +50,7 @@ const Footer: FC<FooterProps> = ({ links, mail }) => {
               ease: 'easeInOut',
               delay: 0.8,
             }}
-            className="absolute top-1/2 left-[58.75vw] h-[28.8vw] w-[28.8vw] -translate-y-1/2 md:left-[58.75vw] md:h-[29.38vw] md:w-[29.38vw] lg:left-[57.05vw]"
+            className="absolute top-1/2 left-[58.75vw] h-[28.8vw] w-[28.8vw] -translate-y-1/2 md:left-[58.75vw] md:h-[29.38vw] md:w-[29.38vw] lg:left-[57.05vw] 2xl:left-[41.55vw] 2xl:h-[423px] 2xl:w-[423px]"
           >
             <Image src={'/images/gummy-bear-aqua-blue.png'} alt="Gummy Bear Aqua Blue" width={423} height={423} />
           </motion.div>

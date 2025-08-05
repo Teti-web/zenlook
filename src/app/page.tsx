@@ -1,5 +1,6 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
+import BagFeatures from '@/components/organisms/BagFeatures/BagFeatures';
 import Appointment from '@/components/organisms/Appointment/Appointment';
 import Description from '@/components/molecules/Description/Description';
 import AutoSlider from '@/components/molecules/AutoSlider/AutoSlider';
@@ -218,6 +219,119 @@ export default function Home() {
               },
             ],
           }}
+        />
+        <BagFeatures
+          image={{
+            src: '/images/bag.png',
+            alt: 'Bag',
+            width: 1132,
+            height: 1092,
+          }}
+          label={{
+            text: 'Key Features',
+          }}
+          title={{
+            text: 'Everything You Need in One Place',
+            variant: 'h2',
+          }}
+          features={[
+            {
+              title: 'Booking via Instagram & TikTok',
+              description: 'Let clients book directly from social media',
+              position: {
+                top: {
+                  mobile: '65%',
+                  tablet: '244px',
+                  desktop: '278px',
+                },
+                left: {
+                  mobile: '12%',
+                  tablet: '-4px',
+                  desktop: '117px',
+                },
+              },
+            },
+            {
+              title: 'Booking via Instagram & TikTok 2',
+              description: 'Let clients book directly from social media',
+              position: {
+                top: {
+                  mobile: '78%',
+                  tablet: '92%',
+                  desktop: '92%',
+                },
+                left: {
+                  mobile: '30%',
+                  tablet: '24%',
+                  desktop: '24%',
+                },
+              },
+            },
+            {
+              title: 'Booking via Instagram & TikTok 3',
+              description: 'Let clients book directly from social media',
+              position: {
+                top: {
+                  mobile: '58%',
+                  tablet: '65%',
+                  desktop: '65%',
+                },
+                left: {
+                  mobile: '40%',
+                  tablet: '27%',
+                  desktop: '27%',
+                },
+              },
+            },
+            {
+              title: 'Booking via Instagram & TikTok 4',
+              description: 'Let clients book directly from social media',
+              position: {
+                top: {
+                  mobile: '40%',
+                  tablet: '38%',
+                  desktop: '38%',
+                },
+                left: {
+                  mobile: '56%',
+                  tablet: '47%',
+                  desktop: '47%',
+                },
+              },
+            },
+            {
+              title: 'Booking via Instagram & TikTok 5',
+              description: 'Let clients book directly from social media',
+              position: {
+                top: {
+                  mobile: '26%',
+                  tablet: '51%',
+                  desktop: '51%',
+                },
+                left: {
+                  mobile: '77%',
+                  tablet: '58%',
+                  desktop: '58%',
+                },
+              },
+            },
+            {
+              title: 'Booking via Instagram & TikTok 6',
+              description: 'Let clients book directly from social media',
+              position: {
+                top: {
+                  mobile: '45%',
+                  tablet: '81%',
+                  desktop: '81%',
+                },
+                left: {
+                  mobile: '67%',
+                  tablet: '47%',
+                  desktop: '47%',
+                },
+              },
+            },
+          ]}
         />
         <Anagraph
           title="Contact us"
