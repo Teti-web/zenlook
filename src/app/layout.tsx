@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${rethinkSans.variable} grid-areas-layout grid h-dvh grid-cols-1 grid-rows-[auto_1fr_auto] overflow-x-hidden antialiased`}
+        className={`${rethinkSans.variable} grid-areas-layout grid h-dvh grid-cols-1 grid-rows-[auto_1fr_auto] antialiased`}
       >
         <PreloaderWrapper>
           <Header />

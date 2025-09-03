@@ -57,13 +57,14 @@ const Mobile: FC<MobileProps> = ({ logo, logoWhite, links, button }) => {
   };
 
   return (
-    <header className="grid-area-header border-hover-stroke mx-3 flex flex-row items-center justify-between border-x pt-4">
+    <header className="grid-area-header border-hover-stroke z-50 mx-3 flex flex-row items-center justify-between border-x pt-4">
       <Link href={'/'} className="flex flex-row items-center justify-center">
         <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
       </Link>
       <button
         className="bg-link inset-shadow-yellow flex h-[44px] w-[44px] items-center justify-center rounded-full"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open menu"
       >
         <Bars2Icon className="text-brand size-6" />
       </button>
@@ -102,6 +103,7 @@ const Mobile: FC<MobileProps> = ({ logo, logoWhite, links, button }) => {
                 <button
                   className="bg-link inset-shadow-yellow flex h-[44px] w-[44px] items-center justify-center rounded-full"
                   onClick={() => setIsOpen(!isOpen)}
+                  aria-label="Close menu"
                 >
                   <XMarkIcon className="text-brand size-6" />
                 </button>

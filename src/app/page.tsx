@@ -1,5 +1,6 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 import FeaturesBlock from '@/components/organisms/FeaturesBlock/FeaturesBlock';
+import BeautyManage from '@/components/organisms/BeautyManage/BeautyManage';
 import BagFeatures from '@/components/organisms/BagFeatures/BagFeatures';
 import Appointment from '@/components/organisms/Appointment/Appointment';
 import Description from '@/components/molecules/Description/Description';
@@ -165,7 +166,7 @@ export default function Home() {
                   alt: 'Appointment 1',
                   width: 450,
                   height: 512,
-                  quality: 80,
+                  quality: 95,
                 },
                 variant: 'beauty-professional',
                 personalInfo: {
@@ -182,7 +183,7 @@ export default function Home() {
                   alt: 'Appointment 2',
                   width: 450,
                   height: 512,
-                  quality: 80,
+                  quality: 95,
                 },
                 variant: 'beauty-manage',
                 title: 'Salons & Barbershops',
@@ -194,7 +195,7 @@ export default function Home() {
                   alt: 'Appointment 3',
                   width: 450,
                   height: 512,
-                  quality: 80,
+                  quality: 95,
                 },
                 variant: 'beauty-professional',
                 personalInfo: {
@@ -211,7 +212,7 @@ export default function Home() {
                   alt: 'Appointment 1',
                   width: 450,
                   height: 512,
-                  quality: 80,
+                  quality: 95,
                 },
                 variant: 'beauty-benefits',
                 title: 'Mobile Professionals',
@@ -241,12 +242,12 @@ export default function Home() {
               position: {
                 top: {
                   mobile: '65%',
-                  tablet: '244px',
+                  tablet: '38%',
                   desktop: '278px',
                 },
                 left: {
                   mobile: '12%',
-                  tablet: '-4px',
+                  tablet: '-1%',
                   desktop: '117px',
                 },
               },
@@ -257,12 +258,12 @@ export default function Home() {
               position: {
                 top: {
                   mobile: '78%',
-                  tablet: '92%',
+                  tablet: '78%',
                   desktop: '92%',
                 },
                 left: {
                   mobile: '30%',
-                  tablet: '24%',
+                  tablet: '16%',
                   desktop: '24%',
                 },
               },
@@ -273,12 +274,12 @@ export default function Home() {
               position: {
                 top: {
                   mobile: '58%',
-                  tablet: '65%',
+                  tablet: '35%',
                   desktop: '65%',
                 },
                 left: {
                   mobile: '40%',
-                  tablet: '27%',
+                  tablet: '20%',
                   desktop: '27%',
                 },
               },
@@ -305,7 +306,7 @@ export default function Home() {
               position: {
                 top: {
                   mobile: '26%',
-                  tablet: '51%',
+                  tablet: '21%',
                   desktop: '51%',
                 },
                 left: {
@@ -321,7 +322,7 @@ export default function Home() {
               position: {
                 top: {
                   mobile: '45%',
-                  tablet: '81%',
+                  tablet: '78%',
                   desktop: '81%',
                 },
                 left: {
@@ -329,6 +330,52 @@ export default function Home() {
                   tablet: '47%',
                   desktop: '47%',
                 },
+              },
+            },
+          ]}
+        />
+        <BeautyManage
+          title={{
+            text: 'Less hassle, more beauty magic',
+            variant: 'h2',
+          }}
+          label={{
+            text: 'Look what have you got',
+          }}
+          description="Zenlook helps beauty professionals manage appointments, send automated reminders, and grow their business effortlessly. "
+          button={{
+            isLink: true,
+            href: '/',
+            children: 'Start Glowing',
+            variant: 'primary',
+            size: 'medium',
+          }}
+          tabs={[
+            {
+              name: 'Dashboard',
+              content: {
+                src: '/images/manage-dashboard.png',
+                alt: 'Dashboard',
+                width: 709,
+                height: 400,
+              },
+            },
+            {
+              name: 'Documentation',
+              content: {
+                src: '/images/manage-documentation.png',
+                alt: 'Documentation',
+                width: 709,
+                height: 400,
+              },
+            },
+            {
+              name: 'Calendar',
+              content: {
+                src: '/images/manage-calendar.png',
+                alt: 'Calendar',
+                width: 709,
+                height: 400,
               },
             },
           ]}
