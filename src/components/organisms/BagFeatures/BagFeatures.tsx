@@ -99,7 +99,7 @@ const BagFeatures: FC<BagFeaturesProps> = ({ label, title, features, image }) =>
   };
 
   return (
-    <section className="relative flex flex-col items-center md:h-dvh md:pt-7 lg:mb-20 lg:h-[860px] lg:pt-20">
+    <section className="relative flex flex-col items-center md:mt-32 md:mb-20 md:h-[460px] lg:mt-0 lg:mb-20 lg:h-[860px] lg:pt-20">
       <div className="flex flex-col items-center justify-center gap-12 md:gap-6 lg:max-w-[746px]">
         <Label {...label} />
         <Heading

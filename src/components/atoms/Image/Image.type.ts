@@ -8,5 +8,6 @@ export type ImageProps = {
   height: number;
   widths?: number[];
   quality?: number;
+  priority?: boolean;
   className?: string;
 };

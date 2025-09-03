@@ -44,7 +44,7 @@ const Button: FC<ButtonProps> = ({
     );
   }
   return (
-    <button onClick={onClick} disabled={disabled} className={buttonClasses}>
+    <button onClick={onClick} disabled={disabled} className={buttonClasses} aria-label={label}>
       {children}
     </button>
   );
