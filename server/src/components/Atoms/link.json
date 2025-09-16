@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_atoms_links",
+  "info": {
+    "displayName": "link"
+  },
+  "options": {},
+  "attributes": {
+    "children": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "primary",
+      "enum": ["primary", "secondary", "underline", "notice"]
+    }
+  },
+  "config": {}
+}

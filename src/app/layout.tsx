@@ -1,6 +1,7 @@
 import PreloaderWrapper from '@/components/templates/PreloaderWrapper/PreloaderWrapper';
+import { FooterWithQuery } from '@/components/organisms/Footer/FooterWithQuery';
 import { Header } from '@/components/organisms/Header/Header';
-import Footer from '@/components/organisms/Footer/Footer';
+import { ProviderAppolo } from '@/providers/providerApollo';
 import { Rethink_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -24,37 +25,15 @@ export default function RootLayout({
       <body
         className={`${rethinkSans.variable} grid-areas-layout grid h-dvh grid-cols-1 grid-rows-[auto_1fr_auto] antialiased`}
       >
-        <PreloaderWrapper>
-          <Header />
-          <main className="border-hover-stroke grid-area-main mx-3 border-x md:mx-6 md:w-full md:border-none lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]">
-            {children}
-          </main>
-          <Footer
-            links={[
-              {
-                href: '/features',
-                children: 'Features',
-              },
-              {
-                href: '/pricing',
-                children: 'Pricing',
-              },
-              {
-                href: '/blog',
-                children: 'Blog',
-              },
-              {
-                href: '/contact',
-                children: 'Contact',
-              },
-              {
-                href: '/support',
-                children: 'Support',
-              },
-            ]}
-            mail={'zenlook@gmail.com'}
-          />
-        </PreloaderWrapper>
+        <ProviderAppolo>
+          <PreloaderWrapper>
+            <Header />
+            <main className="border-hover-stroke grid-area-main mx-3 border-x md:mx-6 md:w-full md:border-none lg:mx-auto lg:max-w-[1216px] xl:max-w-[1376px]">
+              {children}
+            </main>
+            <FooterWithQuery />
+          </PreloaderWrapper>
+        </ProviderAppolo>
       </body>
     </html>
   );

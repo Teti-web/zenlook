@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_atoms_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "private": true,
+      "required": true
+    },
+    "Label": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "Variant": {
+      "type": "enumeration",
+      "required": true,
+      "default": "primary",
+      "enum": ["primary", "secondary", "decorative"]
+    },
+    "Size": {
+      "type": "enumeration",
+      "required": true,
+      "default": "medium",
+      "enum": ["small", "medium", "large"]
+    }
+  },
+  "config": {}
+}

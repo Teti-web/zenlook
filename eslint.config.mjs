@@ -26,6 +26,7 @@ const eslintConfig = [
       'public/**',
       '.storybook/**',
       'storybook-static/**',
+      'server/**',
     ],
   },
 
