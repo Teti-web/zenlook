@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AtomsAnagraph extends Struct.ComponentSchema {
+  collectionName: 'components_atoms_anagraphs';
+  info: {
+    displayName: 'anagraph';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface AtomsButton extends Struct.ComponentSchema {
   collectionName: 'components_atoms_buttons';
   info: {
@@ -68,6 +79,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
     name: 'Seo';
   };
   attributes: {
+    canonicalURL: Schema.Attribute.String;
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
     shareImage: Schema.Attribute.Media<'images'>;
@@ -77,6 +89,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'atoms.anagraph': AtomsAnagraph;
       'atoms.button': AtomsButton;
       'atoms.image': AtomsImage;
       'atoms.link': AtomsLink;

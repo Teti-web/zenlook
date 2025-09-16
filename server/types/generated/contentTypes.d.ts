@@ -509,6 +509,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<['atoms.anagraph']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     defaultSeo: Schema.Attribute.Component<'shared.seo', false>;

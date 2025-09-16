@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_atoms_anagraphs",
+  "info": {
+    "displayName": "anagraph"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}
