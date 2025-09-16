@@ -1,39 +1,40 @@
 {
   "collectionName": "components_atoms_images",
   "info": {
-    "displayName": "Image"
+    "displayName": "image"
   },
   "options": {},
   "attributes": {
-    "Name": {
+    "alt": {
       "type": "string",
-      "private": true,
       "required": true
     },
     "src": {
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": ["images"]
     },
-    "altText": {
-      "type": "text",
-      "required": true
+    "width": {
+      "type": "biginteger"
     },
-    "desktopSrc": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images", "files"]
+    "height": {
+      "type": "biginteger"
     },
     "mobileSrc": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": ["images"]
+    },
+    "desktopSrc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
     },
     "tableSrc": {
       "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images", "files"]
+      "multiple": true,
+      "allowedTypes": ["images"]
     }
   },
   "config": {}

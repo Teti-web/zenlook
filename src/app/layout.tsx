@@ -1,10 +1,11 @@
 import PreloaderWrapper from '@/components/templates/PreloaderWrapper/PreloaderWrapper';
 import { FooterWithQuery } from '@/components/organisms/Footer/FooterWithQuery';
-import { Header } from '@/components/organisms/Header/Header';
 import { ProviderAppolo } from '@/providers/providerApollo';
+import Header from '@/components/organisms/Header/Header';
 import { Rethink_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
+
 const rethinkSans = Rethink_Sans({
   variable: '--font-rethink-sans',
   subsets: ['latin'],
