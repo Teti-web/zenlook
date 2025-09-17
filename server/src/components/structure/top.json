@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_structure_tops",
+  "info": {
+    "displayName": "top"
+  },
+  "options": {},
+  "attributes": {
+    "mobile": {
+      "type": "string",
+      "required": true
+    },
+    "tablet": {
+      "type": "string",
+      "required": true
+    },
+    "desktop": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

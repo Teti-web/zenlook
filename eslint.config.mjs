@@ -26,6 +26,8 @@ const eslintConfig = [
       'public/**',
       '.storybook/**',
       'storybook-static/**',
+      'server/**',
+      'next-env.d.ts',
     ],
   },
 

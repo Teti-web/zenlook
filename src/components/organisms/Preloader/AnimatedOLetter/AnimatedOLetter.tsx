@@ -1,15 +1,9 @@
 'use client';
 
 import { AnimatedOLetterProps } from './AnimatedOLetter.type';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-const AnimatedOLetter = ({
-  index,
-  isVisible,
-  shift,
-  isMobile = false,
-  isAccumulationPhase = false,
-}: AnimatedOLetterProps) => {
+const AnimatedOLetter = ({ index, isVisible, shift, isAccumulationPhase = false }: AnimatedOLetterProps) => {
   if (!isVisible) return null;
 
   return (

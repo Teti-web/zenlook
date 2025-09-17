@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_molecules_box_features",
+  "info": {
+    "displayName": "boxFeature"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "position": {
+      "type": "component",
+      "component": "atoms.feature-position",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

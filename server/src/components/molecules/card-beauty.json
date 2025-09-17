@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_molecules_card_beauties",
+  "info": {
+    "displayName": "cardBeauty"
+  },
+  "options": {},
+  "attributes": {
+    "variant": {
+      "type": "enumeration",
+      "required": true,
+      "enum": ["beauty-professional", "beauty-manage", "beauty-benefits"]
+    },
+    "image": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "personalInfo": {
+      "type": "component",
+      "component": "atoms.personal-info",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

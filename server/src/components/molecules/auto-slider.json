@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_molecules_auto_sliders",
+  "info": {
+    "displayName": "autoSlider"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

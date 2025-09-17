@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_structure_lefts",
+  "info": {
+    "displayName": "left"
+  },
+  "options": {},
+  "attributes": {
+    "mobile": {
+      "type": "string",
+      "required": true
+    },
+    "tablet": {
+      "type": "string",
+      "required": true
+    },
+    "desktop": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

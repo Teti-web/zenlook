@@ -1,109 +1,113 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
+import { ButtonProps, ButtonSize, ButtonVariant } from '@/components/atoms/Button/Button.type';
+import { LinkProps, LinkVariant } from '@/components/atoms/Link/Link.type';
+import Loading from '@/components/atoms/Loading/Loading';
+import React, { FC, useEffect, useState } from 'react';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import { useQuery } from '@apollo/client/react';
+import { GET_HEADER } from './HeaderQuery';
 import Desktop from './Desktop/Desktop';
+import { ImageProps } from 'next/image';
 import Mobile from './Mobile/Mobile';
-import React, { FC } from 'react';
 
-export const Header: FC = () => {
+const Header: FC = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const { isMobile } = useBreakpoint();
+  const { data, loading, error } = useQuery<{
+    header: {
+      logo: ImageProps;
+      logoWhite: ImageProps;
+      mobileLinks: LinkProps[];
+      firstLinks: LinkProps[];
+      secondLinks: LinkProps[];
+      button: ButtonProps;
+    };
+  }>(GET_HEADER);
+
+  if (!mounted) return null;
+  if (loading) return <Loading />;
+  if (error) return <div>Error loading header</div>;
+  if (!data) return null;
+
+  const logo = data.header.logo;
+  const logoWhite = data.header.logoWhite ?? undefined;
+
+  const baseUrl = (process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '');
+  const logoSrc =
+    typeof (logo as any)?.src === 'string' ? (logo as any).src : `${baseUrl}${(logo as any)?.src?.url ?? ''}`;
+  const logoWhiteSrc = logoWhite
+    ? typeof (logoWhite as any)?.src === 'string'
+      ? (logoWhite as any).src
+      : `${baseUrl}${(logoWhite as any)?.src?.url ?? ''}`
+    : undefined;
+  const mobileLinks = data.header.mobileLinks.map((link: LinkProps) => ({
+    href: link.href,
+    children: link.children,
+    variant: link.variant ?? undefined,
+  }));
+  const firstLinks = data.header.firstLinks.map((link: LinkProps) => ({
+    href: link.href,
+    children: link.children,
+    variant: link.variant ?? undefined,
+  }));
+  const secondLinks = data.header.secondLinks.map((link: LinkProps) => ({
+    href: link.href,
+    children: link.children,
+    variant: link.variant ?? undefined,
+  }));
+  const button = data.header.button ?? {
+    href: '/book-demo',
+    children: 'Book demo',
+    variant: 'primary',
+  };
 
   return isMobile ? (
     <Mobile
       logo={{
-        src: '/images/logo.svg',
-        width: 154,
-        height: 34,
-        alt: 'logo',
+        src: logoSrc,
+        width: (logo as any)?.width ?? undefined,
+        height: (logo as any)?.height ?? undefined,
+        alt: (logo as any)?.alt,
       }}
       logoWhite={{
-        src: '/images/logo-white.svg',
-        width: 154,
-        height: 34,
-        alt: 'logo-white',
+        src: logoWhiteSrc as string,
+        width: (logoWhite as any)?.width ?? undefined,
+        height: (logoWhite as any)?.height ?? undefined,
+        alt: (logoWhite as any)?.alt,
       }}
-      links={[
-        {
-          href: '/features',
-          children: 'Features',
-          variant: 'primary',
-        },
-        {
-          href: '/pricing',
-          children: 'Pricing',
-          variant: 'primary',
-        },
-        {
-          href: '/who-loves-us',
-          children: 'Who loves us',
-          variant: 'primary',
-        },
-        {
-          href: '/success-stories',
-          children: 'Success stories',
-          variant: 'primary',
-        },
-        {
-          href: '/blog',
-          children: 'Blog',
-          variant: 'primary',
-        },
-      ]}
+      links={mobileLinks}
       button={{
-        href: '/book-demo',
-        children: 'Book demo',
-        variant: 'primary',
+        href: button.href ?? '',
+        children: button.children,
+        variant: button.variant as LinkVariant,
       }}
     />
   ) : (
     <Desktop
       logo={{
-        src: '/images/logo.svg',
-        width: 104,
-        height: 24,
-        alt: 'logo',
+        src: logoSrc,
+        width: (logo as any)?.width ?? undefined,
+        height: (logo as any)?.height ?? undefined,
+        alt: (logo as any)?.alt,
       }}
       firstColumn={{
-        links: [
-          {
-            href: '/features',
-            children: 'Features',
-            variant: 'primary',
-          },
-          {
-            href: '/pricing',
-            children: 'Pricing',
-            variant: 'primary',
-          },
-          {
-            href: '/who-loves-us',
-            children: 'Who loves us',
-            variant: 'primary',
-          },
-        ],
+        links: firstLinks,
       }}
       secondColumn={{
-        links: [
-          {
-            href: '/success-stories',
-            children: 'Success stories',
-            variant: 'primary',
-          },
-          {
-            href: '/blog',
-            children: 'Blog',
-            variant: 'primary',
-          },
-        ],
+        links: secondLinks,
         button: {
-          children: 'Book demo',
+          size: button.size as ButtonSize,
+          href: button.href,
+          children: button.children,
           isLink: true,
-          variant: 'secondary',
-          size: 'small',
-          label: 'Book demo',
-          href: '/book-demo',
+          variant: button.variant as ButtonVariant,
         },
       }}
     />
   );
 };
+
+export default Header;

@@ -52,25 +52,20 @@ const BagFeatures: FC<BagFeaturesProps> = ({ label, title, features, image }) =>
     const deltaY = Math.abs(touchStartRef.current.y - touchEndRef.current.y);
     const minSwipeDistance = 50;
 
-    // Перевіряємо що це горизонтальний свайп (deltaY менше за deltaX)
     if (Math.abs(deltaX) > minSwipeDistance && deltaY < Math.abs(deltaX)) {
       if (deltaX > 0) {
-        // Свайп вліво - наступний TextBox
         handleSwipeLeft();
       } else {
-        // Свайп вправо - попередній TextBox
         handleSwipeRight();
       }
     }
 
-    // Очищуємо значення
     touchStartRef.current = null;
     touchEndRef.current = null;
   };
 
   const handleSwipeLeft = () => {
     if (activeIndex !== null) {
-      // Зациклювання: якщо останній елемент, переходимо до першого
       const newIndex = activeIndex < features.length - 1 ? activeIndex + 1 : 0;
       setActiveIndex(newIndex);
       setTimeout(() => {
@@ -85,7 +80,6 @@ const BagFeatures: FC<BagFeaturesProps> = ({ label, title, features, image }) =>
 
   const handleSwipeRight = () => {
     if (activeIndex !== null) {
-      // Зациклювання: якщо перший елемент, переходимо до останнього
       const newIndex = activeIndex > 0 ? activeIndex - 1 : features.length - 1;
       setActiveIndex(newIndex);
       setTimeout(() => {
@@ -114,12 +108,10 @@ const BagFeatures: FC<BagFeaturesProps> = ({ label, title, features, image }) =>
           className="z-[-1] w-full md:absolute md:-top-55 md:left-1/2 md:-translate-x-1/2 lg:h-[1092px] lg:w-[1132px]"
         />
 
-        {/* Desktop version - BoxFeature components */}
         {features.map((feature, index) => (
           <BoxFeature key={index} {...feature} allItems={features.length} index={index} />
         ))}
 
-        {/* Mobile version - Point components only */}
         <div className="absolute top-0 left-0 h-full w-full md:hidden">
           {features.map((feature, index) => (
             <Point

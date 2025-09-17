@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_atoms_images",
+  "info": {
+    "displayName": "image"
+  },
+  "options": {},
+  "attributes": {
+    "alt": {
+      "type": "string",
+      "required": true
+    },
+    "src": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "width": {
+      "type": "biginteger"
+    },
+    "height": {
+      "type": "biginteger"
+    },
+    "mobileSrc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "desktopSrc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "tableSrc": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
+    "className": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_molecules_tabs",
+  "info": {
+    "displayName": "tab"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

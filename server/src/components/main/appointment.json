@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_main_appointments",
+  "info": {
+    "displayName": "appointment"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "atoms.heading",
+      "repeatable": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "label": {
+      "type": "string"
+    },
+    "slider": {
+      "type": "component",
+      "component": "molecules.slider",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

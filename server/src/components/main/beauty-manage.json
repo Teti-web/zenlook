@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_main_beauty_manages",
+  "info": {
+    "displayName": "beautyManage"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "atoms.heading",
+      "repeatable": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "component": "atoms.button",
+      "repeatable": false
+    },
+    "label": {
+      "type": "string"
+    },
+    "tabs": {
+      "type": "component",
+      "component": "molecules.tab",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

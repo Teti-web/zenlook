@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "headers",
+  "info": {
+    "singularName": "header",
+    "pluralName": "headers",
+    "displayName": "Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mobileLinks": {
+      "type": "component",
+      "component": "atoms.link",
+      "repeatable": true
+    },
+    "firstLinks": {
+      "type": "component",
+      "component": "atoms.link",
+      "repeatable": true
+    },
+    "secondLinks": {
+      "type": "component",
+      "component": "atoms.link",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "atoms.button",
+      "repeatable": false
+    },
+    "logo": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": false,
+      "required": true
+    },
+    "logoWhite": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": false
+    }
+  }
+}

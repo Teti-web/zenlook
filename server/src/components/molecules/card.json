@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_molecules_cards",
+  "info": {
+    "displayName": "card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "atoms.heading",
+      "repeatable": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "decorativeNumber": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": false,
+      "required": true
+    },
+    "decoratorsImage": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": true
+    },
+    "translate": {
+      "type": "enumeration",
+      "enum": ["top", "middle", "none"]
+    },
+    "className": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

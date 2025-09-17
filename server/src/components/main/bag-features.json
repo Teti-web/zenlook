@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_main_bag_features",
+  "info": {
+    "displayName": "bagFeatures"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "title": {
+      "type": "component",
+      "component": "atoms.heading",
+      "repeatable": false,
+      "required": true
+    },
+    "image": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": false,
+      "required": true
+    },
+    "features": {
+      "type": "component",
+      "component": "molecules.box-feature",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
