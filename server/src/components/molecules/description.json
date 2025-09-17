@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_molecules_descriptions",
+  "info": {
+    "displayName": "description"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "component": "atoms.button",
+      "repeatable": false,
+      "required": true
+    },
+    "title": {
+      "type": "component",
+      "component": "atoms.heading",
+      "repeatable": false
+    },
+    "boldText": {
+      "type": "text"
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "primary",
+      "enum": ["primary", "secondary"]
+    },
+    "isAnimated": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

@@ -509,11 +509,22 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<['atoms.anagraph']>;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'atoms.anagraph',
+        'main.features',
+        'molecules.auto-slider',
+        'main.appointment',
+        'main.bag-features',
+        'main.beauty-manage',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     defaultSeo: Schema.Attribute.Component<'shared.seo', false>;
+    description: Schema.Attribute.Component<'molecules.description', false>;
     favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    intro: Schema.Attribute.Component<'main.intro', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'> & Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;

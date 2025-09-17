@@ -35,6 +35,9 @@
       "type": "media",
       "multiple": true,
       "allowedTypes": ["images"]
+    },
+    "className": {
+      "type": "string"
     }
   },
   "config": {}

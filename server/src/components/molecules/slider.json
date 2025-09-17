@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_molecules_sliders",
+  "info": {
+    "displayName": "slider"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "component": "molecules.card-beauty",
+      "repeatable": true,
+      "required": true
+    },
+    "className": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

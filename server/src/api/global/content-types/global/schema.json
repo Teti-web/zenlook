@@ -20,11 +20,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ]
+      "allowedTypes": ["images", "files", "videos"]
     },
     "siteDescription": {
       "type": "text",
@@ -35,10 +31,25 @@
       "component": "shared.seo",
       "repeatable": false
     },
+    "intro": {
+      "type": "component",
+      "component": "main.intro",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "molecules.description",
+      "repeatable": false
+    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "atoms.anagraph"
+        "atoms.anagraph",
+        "main.features",
+        "molecules.auto-slider",
+        "main.appointment",
+        "main.bag-features",
+        "main.beauty-manage"
       ]
     }
   }

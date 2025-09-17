@@ -1,9 +1,9 @@
 'use client';
 
 import CardBeauty from '@/components/molecules/CardBeauty/CardBeauty';
+import { FC, useState, useEffect, useRef, useMemo } from 'react';
 import { CardBeautyProps } from '../CardBeauty/CardBeauty.type';
 import { motion, useInView, PanInfo } from 'framer-motion';
-import { FC, useState, useEffect, useRef } from 'react';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { SliderProps } from './Slider.type';
 import Image from 'next/image';
@@ -17,18 +17,23 @@ const Slider: FC<SliderProps> = ({ items }) => {
   const [slidesToShow, setSlidesToShow] = useState(1);
   const [hasShownPlaceholder, setHasShownPlaceholder] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
-  const { isDesktop, isTablet, isMobile } = useBreakpoint();
+  const { isDesktop, isTablet } = useBreakpoint();
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const clonedSlides = items.slice(0, slidesToShow);
-
   const slideWidth = 100 / slidesToShow;
 
-  const shouldUsePlaceholder = hasShownPlaceholder && slidesToShow >= 2;
-  const slides = shouldUsePlaceholder ? ['placeholder', ...items, ...clonedSlides] : [...items, ...clonedSlides];
-
   const totalSlides = items.length;
+
+  const clonedSlides = useMemo(() => items.slice(0, Math.floor(slidesToShow)), [items, slidesToShow]);
+
+  const slides = useMemo<(CardBeautyProps | 'placeholder')[]>(
+    () =>
+      hasShownPlaceholder && slidesToShow >= 2
+        ? ['placeholder', ...items, ...clonedSlides]
+        : [...items, ...clonedSlides],
+    [hasShownPlaceholder, slidesToShow, items, clonedSlides],
+  );
 
   useEffect(() => {
     if (isDesktop) {

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_atoms_headings",
+  "info": {
+    "displayName": "heading"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "h2",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6"]
+    }
+  },
+  "config": {}
+}

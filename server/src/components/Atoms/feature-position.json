@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_atoms_feature_positions",
+  "info": {
+    "displayName": "featurePosition"
+  },
+  "options": {},
+  "attributes": {
+    "top": {
+      "type": "component",
+      "component": "structure.top",
+      "repeatable": false
+    },
+    "left": {
+      "type": "component",
+      "component": "structure.left",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
