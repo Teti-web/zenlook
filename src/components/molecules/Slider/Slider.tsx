@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import CardBeauty from '@/components/molecules/CardBeauty/CardBeauty';
+import { ReviewCardProps } from '../ReviewCard/ReviewCard.types';
 import { FC, useState, useEffect, useRef, useMemo } from 'react';
 import { CardBeautyProps } from '../CardBeauty/CardBeauty.type';
 import { motion, useInView, PanInfo } from 'framer-motion';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import ReviewCard from '../ReviewCard/ReviewCard';
 import { SliderProps } from './Slider.type';
 import Image from 'next/image';
 
@@ -21,13 +24,19 @@ const Slider: FC<SliderProps> = ({ items }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  const isCardBeauty = (v: unknown): v is CardBeautyProps =>
+    !!v && typeof v === 'object' && 'image' in (v as any) && 'variant' in (v as any);
+
+  const isReviewCard = (v: unknown): v is ReviewCardProps =>
+    !!v && typeof v === 'object' && 'text' in (v as any) && 'author' in (v as any) && 'image' in (v as any);
+
   const slideWidth = 100 / slidesToShow;
 
   const totalSlides = items.length;
 
   const clonedSlides = useMemo(() => items.slice(0, Math.floor(slidesToShow)), [items, slidesToShow]);
 
-  const slides = useMemo<(CardBeautyProps | 'placeholder')[]>(
+  const slides = useMemo<(CardBeautyProps | 'placeholder' | ReviewCardProps)[]>(
     () =>
       hasShownPlaceholder && slidesToShow >= 2
         ? ['placeholder', ...items, ...clonedSlides]
@@ -120,7 +129,7 @@ const Slider: FC<SliderProps> = ({ items }) => {
     <div ref={containerRef} className="relative flex w-full flex-col gap-6 overflow-hidden">
       <motion.div
         ref={ref}
-        className={`flex ${isDesktop ? 'cursor-grab active:cursor-grabbing' : ''}`}
+        className={`flex ${isDesktop ? 'cursor-grab active:cursor-grabbing' : ''} ${isReviewCard(slides[0]) ? 'gap-5' : ''}`}
         animate={{ x: `-${currentIndex * slideWidth}%` }}
         transition={{
           duration: isDragging ? 0 : 0.5,
@@ -146,12 +155,18 @@ const Slider: FC<SliderProps> = ({ items }) => {
             animate={isInView ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0.8 }}
             transition={{ duration: 0.3 }}
           >
-            <div className={slidesToShow < 2 ? 'w-full' : 'md:mx-auto md:max-w-[450px]'}>
+            <div
+              className={`${
+                slidesToShow < 2 ? 'w-full' : 'md:mx-auto md:max-w-[450px]'
+              } ${isReviewCard(item) ? 'md:max-w-[330px]' : ''}`}
+            >
               {item === 'placeholder' ? (
                 <div className="hidden h-full w-full rounded-2xl bg-gray-200 shadow-inner md:block" />
-              ) : (
-                <CardBeauty {...(item as CardBeautyProps)} />
-              )}
+              ) : isCardBeauty(item) ? (
+                <CardBeauty {...item} />
+              ) : isReviewCard(item) ? (
+                <ReviewCard {...item} />
+              ) : null}
             </div>
           </motion.div>
         ))}

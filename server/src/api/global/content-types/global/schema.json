@@ -20,7 +20,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "siteDescription": {
       "type": "text",
@@ -49,7 +53,8 @@
         "molecules.auto-slider",
         "main.appointment",
         "main.bag-features",
-        "main.beauty-manage"
+        "main.beauty-manage",
+        "main.reviews"
       ]
     }
   }

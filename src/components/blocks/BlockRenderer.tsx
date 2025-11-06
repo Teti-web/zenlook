@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { Variants } from '../molecules/CardBeauty/CardBeauty.type';
+import { CardBeautyProps, Variants } from '../molecules/CardBeauty/CardBeauty.type';
+import { ReviewCardProps } from '../molecules/ReviewCard/ReviewCard.types';
 import { ImageProps } from '../atoms/Image/Image.type';
 import { getStrapiUrl } from '@/helpers/getStrapiUrl';
 import type { CmsBlock } from './BlockRender.types';
+import Reviews from '../organisms/Reviews/Reviews';
 import dynamic from 'next/dynamic';
 
 const Anagraph = dynamic(() => import('@/components/molecules/Anagraph/Anagraph'), { ssr: false });
@@ -19,6 +21,10 @@ export default function BlockRenderer({ blocks }: { blocks: CmsBlock[] }) {
 
   const baseUrl = (process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '');
   const isImageProps = (v: unknown): v is ImageProps => !!v && typeof v === 'object' && 'src' in (v as any);
+  const isCardBeauty = (v: unknown): v is CardBeautyProps =>
+    !!v && typeof v === 'object' && 'variant' in (v as any) && 'image' in (v as any);
+  const isReviewCard = (v: unknown): v is ReviewCardProps =>
+    !!v && typeof v === 'object' && 'text' in (v as any) && 'author' in (v as any) && 'image' in (v as any);
 
   return (
     <>
@@ -76,7 +82,7 @@ export default function BlockRenderer({ blocks }: { blocks: CmsBlock[] }) {
                 label={{ text: block.label }}
                 slider={{
                   ...block.slider,
-                  items: block.slider.items.map((item) => ({
+                  items: block.slider.items.filter(isCardBeauty).map((item) => ({
                     variant: (item?.variant as string).replace('_', '-') as Variants,
                     title: item.title ?? '',
                     description: item.description ?? '',
@@ -133,6 +139,25 @@ export default function BlockRenderer({ blocks }: { blocks: CmsBlock[] }) {
                 })}
                 button={block.button ? { ...block.button, href: getStrapiUrl(block.button.href, baseUrl) } : undefined}
                 label={block.label ? { text: block.label } : undefined}
+              />
+            );
+          case 'ComponentMainReviews':
+            return (
+              <Reviews
+                key={`${block.id}-reviews`}
+                label={block.label ? { text: block.label } : undefined}
+                title={block.title}
+                reviews={block.reviews.filter(isReviewCard).map((review) => ({
+                  ...review,
+                  image: {
+                    ...review.image,
+                    src: getStrapiUrl(review.image?.src, baseUrl),
+                    mobileSrc: getStrapiUrl(review.image?.mobileSrc, baseUrl),
+                    tabletSrc: getStrapiUrl(review.image?.tabletSrc, baseUrl),
+                    desktopSrc: getStrapiUrl(review.image?.desktopSrc, baseUrl),
+                  },
+                }))}
+                button={block.button ? { ...block.button, href: getStrapiUrl(block.button.href, baseUrl) } : undefined}
               />
             );
           default:

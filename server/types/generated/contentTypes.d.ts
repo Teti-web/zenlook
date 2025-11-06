@@ -517,6 +517,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
         'main.appointment',
         'main.bag-features',
         'main.beauty-manage',
+        'main.reviews',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

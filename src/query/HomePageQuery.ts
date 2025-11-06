@@ -225,6 +225,48 @@ export const GET_HOME_PAGE = `
           }
         }
       }
+        ... on ComponentMainReviews {
+        id
+        label
+        title {
+          id
+          text
+          variant
+        }
+        button {
+          id
+          children
+          label
+          variant
+          size
+          href
+        }
+        reviews {
+          id
+          text
+          author
+          backgroundColor
+          image {
+            id
+            width
+            height
+            alt
+            className
+            src {
+              url
+            }
+            mobileSrc {
+              url
+            }
+            tableSrc {
+              url
+            }
+            desktopSrc {
+              url
+            }
+          }
+        }
+      }
     }
     intro {
       id

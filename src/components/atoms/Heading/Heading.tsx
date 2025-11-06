@@ -8,7 +8,7 @@ const Heading: FC<HeadingProps> = ({ text, variant = 'h2', className = '' }) => 
     case 'h1':
       return (
         <h1
-          className={`${headingClasses} text-gradient-red text-[44px] leading-none font-bold md:text-[85px] md:tracking-normal lg:text-[112px]`}
+          className={`${headingClasses} text-gradient-red text-[44px] font-bold md:text-[85px] md:tracking-normal lg:text-[112px]`}
         >
           {text}
         </h1>

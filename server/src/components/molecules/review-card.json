@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_molecules_review_cards",
+  "info": {
+    "displayName": "reviewCard"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "required": true,
+      "default": "red",
+      "enum": [
+        "peach",
+        "pink",
+        "orange",
+        "yellow",
+        "red"
+      ]
+    },
+    "image": {
+      "type": "component",
+      "component": "atoms.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

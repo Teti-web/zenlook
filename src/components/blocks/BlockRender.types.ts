@@ -1,6 +1,7 @@
 import { BeautyManageTabProps } from '@/components/organisms/BeautyManage/BeautyManage.type';
 import { BoxFeatureProps } from '@/components/molecules/BoxFeature/BoxFeature.type';
 import type { HeadingProps } from '@/components/atoms/Heading/Heading.type';
+import { ReviewCardProps } from '../molecules/ReviewCard/ReviewCard.types';
 import { SliderProps } from '@/components/molecules/Slider/Slider.type';
 import { ButtonProps } from '@/components/atoms/Button/Button.type';
 import { CardProps } from '@/components/molecules/Card/Card.type';
@@ -56,10 +57,20 @@ export type BeautyManageBlock = {
   tabs: BeautyManageTabProps[];
 };
 
+export type ReviewsBlock = {
+  __typename: 'ComponentMainReviews';
+  id: string;
+  label: string;
+  title: HeadingProps;
+  button?: ButtonProps;
+  reviews: ReviewCardProps[];
+};
+
 export type CmsBlock =
   | AnagraphBlock
   | FeaturesBlock
   | AutoSliderBlock
   | AppointmentBlock
   | BagFeaturesBlock
-  | BeautyManageBlock;
+  | BeautyManageBlock
+  | ReviewsBlock;

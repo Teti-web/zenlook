@@ -17,6 +17,7 @@
   --gradient-red-100: linear-gradient(90deg, #c41e28 0%, #f59179 100%);
   --gradient-red: linear-gradient(92.86deg, #f8b3a2 3.43%, #ee4217 115.82%);
   --gradient-red-blur: linear-gradient(154.68deg, #fdac9f 37.14%, #ee4217 90.08%);
+  --gradient-yellow: linear-gradient(272.69deg, #fee5a2 8.81%, #fdbd17 97.22%);
   --inset-shadow-red: inset -2px -6px 10px 0 #ba142a, inset 2px 6px 10px 0 #ffffff8c;
   --inset-shadow-red-hover: inset -2px -6px 10px 0 #ffffff8c, inset 2px 6px 10px 0 #ba142a;
   --inset-shadow-yellow: inset -2px -10px 10px 0 #ca840e4d, inset 2px 10px 10px 0 #ffffff7d;
@@ -40,6 +41,7 @@
   --color-gradient-red-100: var(--gradient-red-100);
   --color-gradient-red: var(--gradient-red);
   --color-gradient-red-blur: var(--gradient-red-blur);
+  --color-gradient-yellow: var(--gradient-yellow);
   --color-content-inverce: var(--content-inverce);
   --inset-shadow-red: var(--inset-shadow-red);
   --inset-shadow-red-hover: var(--inset-shadow-red-hover);
@@ -149,6 +151,10 @@ body {
 
 .bg-gradient-red-blur {
   background: var(--color-gradient-red-blur);
+}
+
+.bg-gradient-yellow {
+  background: var(--color-gradient-yellow);
 }
 
 .text-gradient-red {

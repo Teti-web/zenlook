@@ -16,9 +16,11 @@
     "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.23.7",
     "graphql": "^16.11.0",
+    "gsap": "^3.13.0",
     "next": "^15.5.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "smooth-scrollbar": "^8.8.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.1",
