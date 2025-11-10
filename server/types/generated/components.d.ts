@@ -158,6 +158,19 @@ export interface MainIntro extends Struct.ComponentSchema {
   };
 }
 
+export interface MainReviews extends Struct.ComponentSchema {
+  collectionName: 'components_main_reviews';
+  info: {
+    displayName: 'reviews';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'atoms.button', false>;
+    label: Schema.Attribute.Text;
+    reviews: Schema.Attribute.Component<'molecules.review-card', true>;
+    title: Schema.Attribute.Component<'atoms.heading', false> & Schema.Attribute.Required;
+  };
+}
+
 export interface MoleculesAutoSlider extends Struct.ComponentSchema {
   collectionName: 'components_molecules_auto_sliders';
   info: {
@@ -224,6 +237,21 @@ export interface MoleculesDescription extends Struct.ComponentSchema {
     isAnimated: Schema.Attribute.Boolean;
     title: Schema.Attribute.Component<'atoms.heading', false>;
     variant: Schema.Attribute.Enumeration<['primary', 'secondary']> & Schema.Attribute.DefaultTo<'primary'>;
+  };
+}
+
+export interface MoleculesReviewCard extends Struct.ComponentSchema {
+  collectionName: 'components_molecules_review_cards';
+  info: {
+    displayName: 'reviewCard';
+  };
+  attributes: {
+    author: Schema.Attribute.String & Schema.Attribute.Required;
+    backgroundColor: Schema.Attribute.Enumeration<['peach', 'pink', 'orange', 'yellow', 'red']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'red'>;
+    image: Schema.Attribute.Component<'atoms.image', false>;
+    text: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -316,11 +344,13 @@ declare module '@strapi/strapi' {
       'main.beauty-manage': MainBeautyManage;
       'main.features': MainFeatures;
       'main.intro': MainIntro;
+      'main.reviews': MainReviews;
       'molecules.auto-slider': MoleculesAutoSlider;
       'molecules.box-feature': MoleculesBoxFeature;
       'molecules.card': MoleculesCard;
       'molecules.card-beauty': MoleculesCardBeauty;
       'molecules.description': MoleculesDescription;
+      'molecules.review-card': MoleculesReviewCard;
       'molecules.slider': MoleculesSlider;
       'molecules.tab': MoleculesTab;
       'shared.rich-text': SharedRichText;

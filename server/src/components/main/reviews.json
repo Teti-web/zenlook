@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_main_reviews",
+  "info": {
+    "displayName": "reviews"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "text"
+    },
+    "title": {
+      "type": "component",
+      "component": "atoms.heading",
+      "repeatable": false,
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "component": "atoms.button",
+      "repeatable": false
+    },
+    "reviews": {
+      "type": "component",
+      "component": "molecules.review-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

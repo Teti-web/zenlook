@@ -49,7 +49,8 @@
         "molecules.auto-slider",
         "main.appointment",
         "main.bag-features",
-        "main.beauty-manage"
+        "main.beauty-manage",
+        "main.reviews"
       ]
     }
   }
