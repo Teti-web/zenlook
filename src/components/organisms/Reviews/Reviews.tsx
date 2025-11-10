@@ -5,60 +5,18 @@ import Slider from '@/components/molecules/Slider/Slider';
 import Heading from '@/components/atoms/Heading/Heading';
 import Button from '@/components/atoms/Button/Button';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
-import React, { FC, useEffect, useRef } from 'react';
 import Label from '@/components/atoms/Label/Label';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ReviewsProps } from './Reviews.types';
-import gsap from 'gsap';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useScroll } from 'framer-motion';
+import React, { FC, useRef } from 'react';
 
 const Reviews: FC<ReviewsProps> = ({ label, title, reviews, button }) => {
   const { isMobile } = useBreakpoint();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    if (isMobile) return;
-
-    const section = containerRef.current;
-    const cards = cardsRef.current;
-    if (!section) return;
-
-    // Timeline, який керує всім блоком
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top center',
-        end: `+=${cards.length}`,
-        pin: true,
-        scrub: true,
-      },
-    });
-
-    const spacer = 20;
-    const minScale = 0.8;
-    const distributor = gsap.utils.distribute({ base: minScale, amount: 0.2 });
-
-    cards.forEach((card, i) => {
-      if (!card) return;
-      const scaleVal = distributor(i, card, cards);
-
-      tl.to(
-        card,
-        {
-          y: i * spacer,
-          scale: scaleVal,
-        },
-        i * 0.2, // зсув у таймлайні
-      );
-    });
-
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
-  }, [isMobile]);
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', 'end end'],
+  });
 
   return (
     <section className="flex flex-col items-center justify-center gap-5 lg:gap-14">
@@ -73,20 +31,27 @@ const Reviews: FC<ReviewsProps> = ({ label, title, reviews, button }) => {
       {isMobile ? (
         <Slider items={reviews} />
       ) : (
-        <section ref={containerRef} className="relative w-full">
-          <div className="cards-review relative w-full">
-            {reviews.map((review, index) => (
+        <section ref={container} className="relative w-full">
+          {reviews.map((review, index) => {
+            const isLast = index === reviews.length - 1;
+            const targetScale = isLast ? 1 : 0.94;
+            const topPx = index === 0 ? 60 : 60 + index * 20;
+
+            return (
               <div
                 key={index}
-                ref={(el) => {
-                  cardsRef.current[index] = el;
-                }}
-                className="relative"
+                className="card-review sticky will-change-transform"
+                style={{ top: `${topPx}px`, zIndex: 10 + index }}
               >
-                <ReviewCard {...review} />
+                <ReviewCard
+                  {...review}
+                  progress={scrollYProgress}
+                  range={[index * 0.25, 1]}
+                  targetScale={targetScale}
+                />
               </div>
-            ))}
-          </div>
+            );
+          })}
         </section>
       )}
 

@@ -17,13 +17,7 @@
       "type": "enumeration",
       "required": true,
       "default": "red",
-      "enum": [
-        "peach",
-        "pink",
-        "orange",
-        "yellow",
-        "red"
-      ]
+      "enum": ["peach", "pink", "orange", "yellow", "red"]
     },
     "image": {
       "type": "component",

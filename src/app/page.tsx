@@ -28,54 +28,6 @@ export default async function Home() {
 
   return (
     <>
-      {/* 
-       
-        <BeautyManage
-          title={{
-            text: 'Less hassle, more beauty magic',
-            variant: 'h2',
-          }}
-          label={{
-            text: 'Look what have you got',
-          }}
-          description="Zenlook helps beauty professionals manage appointments, send automated reminders, and grow their business effortlessly. "
-          button={{
-            isLink: true,
-            href: '/',
-            children: 'Start Glowing',
-            variant: 'primary',
-            size: 'medium',
-          }}
-          tabs={[
-            {
-              name: 'Dashboard',
-              content: {
-                src: '/images/manage-dashboard.png',
-                alt: 'Dashboard',
-                width: 709,
-                height: 400,
-              },
-            },
-            {
-              name: 'Documentation',
-              content: {
-                src: '/images/manage-documentation.png',
-                alt: 'Documentation',
-                width: 709,
-                height: 400,
-              },
-            },
-            {
-              name: 'Calendar',
-              content: {
-                src: '/images/manage-calendar.png',
-                alt: 'Calendar',
-                width: 709,
-                height: 400,
-              },
-            },
-          ]}
-        /> */}
       <Intro
         label={data.intro.label}
         description={{
