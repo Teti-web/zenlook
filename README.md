@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# zenlook
 
-## Getting Started
+A minimalist wellness/beauty landing page with a calm, distraction-free UX and typography-led visual design. Built as a fully CMS-driven, animated marketing site — practicing the same architecture pattern used for production multi-region brand sites: a headless CMS feeding a block-based page builder over GraphQL.
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js 15** (App Router) + **React 19**
+- - **Apollo Client** + **GraphQL** — content fetched from a headless CMS as a dynamic list of typed content blocks
+  - - **Framer Motion** + **smooth-scrollbar** — scroll-driven animation and smooth-scroll behavior
+    - - **Tailwind CSS v4**
+      - - **Storybook** with the **a11y addon** — component-level accessibility checks during development
+        - - **Vitest** + **Playwright** — unit and browser testing
+          - - **Husky** + **ESLint** + **Prettier** (with import/attribute-sorting plugins) — enforced code quality and consistent formatting on commit
+           
+            - ## Architecture
+           
+            - Components follow atomic design — `atoms/`, `molecules/`, `organisms/`, `blocks/`, and `templates/` — so page sections map directly to CMS content blocks rather than being hardcoded.
+           
+            - The home page is rendered from a single GraphQL query (`GetHomePage`) that returns a typed union of content blocks — features, an auto-rotating image slider, an appointment/booking section with stylist profiles and ratings, a service tabs section, and a reviews section — so the page layout and content are fully editor-controlled rather than hardcoded in the frontend.
+           
+            - ## What this project practices
+           
+            - - Consuming a headless CMS's dynamic-zone content model on the frontend without hardcoding page structure
+              - - Building an atomic, reusable component library driven by typed GraphQL fragments
+                - - Layering animation and smooth-scroll on top of a performance-conscious Next.js build
+                  - - Treating accessibility and testing as first-class — Storybook a11y checks and Playwright/Vitest coverage from the start, not bolted on later
+                   
+                    - ## Local development
+                   
+                    - ```bash
+                      npm install
+                      npm run dev            # local dev server (Turbopack)
+                      npm run storybook      # component explorer
+                      npm run lint            # prettier + eslint --fix
+                      ```
+                      
