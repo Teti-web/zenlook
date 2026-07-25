@@ -3,8 +3,8 @@
 
 import { CardBeautyProps, Variants } from '../molecules/CardBeauty/CardBeauty.type';
 import { ReviewCardProps } from '../molecules/ReviewCard/ReviewCard.types';
-import { ImageProps } from '../atoms/Image/Image.type';
 import { getStrapiBaseUrl, getStrapiUrl } from '@/helpers/getStrapiUrl';
+import { ImageProps } from '../atoms/Image/Image.type';
 import type { CmsBlock } from './BlockRender.types';
 import Reviews from '../organisms/Reviews/Reviews';
 import dynamic from 'next/dynamic';

@@ -1,10 +1,10 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 
-import BlockRenderer from '@/components/blocks/BlockRenderer';
-import Intro from '@/components/organisms/Intro/Intro';
-import type { CmsBlock } from '@/components/blocks/BlockRender.types';
 import type { HeadingProps } from '@/components/atoms/Heading/Heading.type';
 import type { ButtonProps } from '@/components/atoms/Button/Button.type';
+import type { CmsBlock } from '@/components/blocks/BlockRender.types';
+import BlockRenderer from '@/components/blocks/BlockRenderer';
+import Intro from '@/components/organisms/Intro/Intro';
 
 import Description from '@/components/molecules/Description/Description';
 import { GET_HOME_PAGE } from '@/query/HomePageQuery';

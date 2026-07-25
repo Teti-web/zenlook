@@ -3,11 +3,11 @@
 
 import { ButtonProps, ButtonSize, ButtonVariant } from '@/components/atoms/Button/Button.type';
 import { LinkProps, LinkVariant } from '@/components/atoms/Link/Link.type';
+import { getStrapiBaseUrl } from '@/helpers/getStrapiUrl';
 import Loading from '@/components/atoms/Loading/Loading';
 import React, { FC, useEffect, useState } from 'react';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useQuery } from '@apollo/client/react';
-import { getStrapiBaseUrl } from '@/helpers/getStrapiUrl';
 import { GET_HEADER } from './HeaderQuery';
 import Desktop from './Desktop/Desktop';
 import { ImageProps } from 'next/image';

@@ -7,8 +7,8 @@ import {
   CombinedGraphQLErrors,
 } from '@apollo/client';
 import { loadErrorMessages, loadDevMessages } from '@apollo/client/dev';
-import { setContext } from '@apollo/client/link/context';
 import { getStrapiBaseUrl } from '@/helpers/getStrapiUrl';
+import { setContext } from '@apollo/client/link/context';
 import { ErrorLink } from '@apollo/client/link/error';
 
 const __DEV__ = process.env.NODE_ENV !== 'production';
