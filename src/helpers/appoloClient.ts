@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import { loadErrorMessages, loadDevMessages } from '@apollo/client/dev';
 import { setContext } from '@apollo/client/link/context';
+import { getStrapiBaseUrl } from '@/helpers/getStrapiUrl';
 import { ErrorLink } from '@apollo/client/link/error';
 
 const __DEV__ = process.env.NODE_ENV !== 'production';
@@ -17,7 +18,7 @@ if (__DEV__) {
   loadErrorMessages();
 }
 
-const baseUrl = (process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '');
+const baseUrl = getStrapiBaseUrl();
 
 const httpLink = new HttpLink({
   uri: `${baseUrl}/graphql`,

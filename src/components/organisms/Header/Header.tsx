@@ -7,6 +7,7 @@ import Loading from '@/components/atoms/Loading/Loading';
 import React, { FC, useEffect, useState } from 'react';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { useQuery } from '@apollo/client/react';
+import { getStrapiBaseUrl } from '@/helpers/getStrapiUrl';
 import { GET_HEADER } from './HeaderQuery';
 import Desktop from './Desktop/Desktop';
 import { ImageProps } from 'next/image';
@@ -35,7 +36,7 @@ const Header: FC = () => {
   const logo = data.header.logo;
   const logoWhite = data.header.logoWhite ?? undefined;
 
-  const baseUrl = (process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '');
+  const baseUrl = getStrapiBaseUrl();
   const logoSrc =
     typeof (logo as any)?.src === 'string' ? (logo as any).src : `${baseUrl}${(logo as any)?.src?.url ?? ''}`;
   const logoWhiteSrc = logoWhite
