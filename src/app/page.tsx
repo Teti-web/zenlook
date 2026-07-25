@@ -1,30 +1,51 @@
 import DecorativeContainer from '@/components/molecules/DecorativeContainer/DecorativeContainer';
 
+import type { HeadingProps } from '@/components/atoms/Heading/Heading.type';
+import type { ButtonProps } from '@/components/atoms/Button/Button.type';
+import type { CmsBlock } from '@/components/blocks/BlockRender.types';
 import BlockRenderer from '@/components/blocks/BlockRenderer';
 import Intro from '@/components/organisms/Intro/Intro';
 
 import Description from '@/components/molecules/Description/Description';
 import { GET_HOME_PAGE } from '@/query/HomePageQuery';
+import { strapiGraphQL } from '@/lib/strapiFetch';
 
-async function fetchData() {
-  const endpoint = `${(process.env.STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '')}/graphql`;
-  const token = process.env.STRAPI_API_TOKEN;
-  const res = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    body: JSON.stringify({ query: GET_HOME_PAGE }),
-    cache: 'no-store',
+type HomePageData = {
+  intro: {
+    label: string;
+    introDescription: {
+      title: HeadingProps;
+      description: string;
+      button: ButtonProps;
+    };
+  };
+  description: {
+    boldText?: string;
+    description: string;
+    button: ButtonProps;
+  };
+  blocks: CmsBlock[];
+};
+
+async function fetchData(): Promise<HomePageData | null> {
+  const data = await strapiGraphQL<{ global: HomePageData | null }>(GET_HOME_PAGE, {
+    revalidate: 60,
+    tags: ['global'],
   });
-  if (!res.ok) return [];
-  const json = await res.json();
-  return json?.data?.global ?? [];
+  return data?.global ?? null;
 }
 
 export default async function Home() {
   const data = await fetchData();
+
+  if (!data) {
+    return (
+      <div className="flex h-[50vh] flex-col items-center justify-center gap-2 text-center">
+        <p className="text-lg font-medium">Content is not available yet</p>
+        <p className="text-neutral-500">Publish the &quot;Global&quot; entry in Strapi to populate this page.</p>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -7,6 +7,7 @@ import {
   CombinedGraphQLErrors,
 } from '@apollo/client';
 import { loadErrorMessages, loadDevMessages } from '@apollo/client/dev';
+import { getStrapiBaseUrl } from '@/helpers/getStrapiUrl';
 import { setContext } from '@apollo/client/link/context';
 import { ErrorLink } from '@apollo/client/link/error';
 
@@ -17,7 +18,7 @@ if (__DEV__) {
   loadErrorMessages();
 }
 
-const baseUrl = (process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '');
+const baseUrl = getStrapiBaseUrl();
 
 const httpLink = new HttpLink({
   uri: `${baseUrl}/graphql`,

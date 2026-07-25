@@ -2,6 +2,7 @@ import PreloaderWrapper from '@/components/templates/PreloaderWrapper/PreloaderW
 import { FooterWithQuery } from '@/components/organisms/Footer/FooterWithQuery';
 import { ProviderAppolo } from '@/providers/providerApollo';
 import Header from '@/components/organisms/Header/Header';
+import { getStrapiBaseUrl } from '@/helpers/getStrapiUrl';
 import { fetchDefaultSeo } from '@/lib/strapiSeo';
 import { Rethink_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
@@ -14,7 +15,7 @@ const rethinkSans = Rethink_Sans({
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await fetchDefaultSeo();
-  const baseUrl = (process.env.STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '');
+  const baseUrl = getStrapiBaseUrl();
 
   return {
     title: seo?.metaTitle ?? 'Zenlook',

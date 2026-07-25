@@ -3,8 +3,8 @@
 
 import { CardBeautyProps, Variants } from '../molecules/CardBeauty/CardBeauty.type';
 import { ReviewCardProps } from '../molecules/ReviewCard/ReviewCard.types';
+import { getStrapiBaseUrl, getStrapiUrl } from '@/helpers/getStrapiUrl';
 import { ImageProps } from '../atoms/Image/Image.type';
-import { getStrapiUrl } from '@/helpers/getStrapiUrl';
 import type { CmsBlock } from './BlockRender.types';
 import Reviews from '../organisms/Reviews/Reviews';
 import dynamic from 'next/dynamic';
@@ -19,7 +19,7 @@ const BeautyManage = dynamic(() => import('@/components/organisms/BeautyManage/B
 export default function BlockRenderer({ blocks }: { blocks: CmsBlock[] }) {
   if (!blocks?.length) return null;
 
-  const baseUrl = (process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337').replace(/\/$/, '');
+  const baseUrl = getStrapiBaseUrl();
   const isImageProps = (v: unknown): v is ImageProps => !!v && typeof v === 'object' && 'src' in (v as any);
   const isCardBeauty = (v: unknown): v is CardBeautyProps =>
     !!v && typeof v === 'object' && 'variant' in (v as any) && 'image' in (v as any);
