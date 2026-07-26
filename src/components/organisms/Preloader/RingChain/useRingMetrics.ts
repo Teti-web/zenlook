@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect, useState } from 'react';
-import type { RefObject } from 'react';
 import type { RingMetrics } from './RingChain.type';
+import type { RefObject } from 'react';
 
 /** Fraction of a ring's width that each subsequent ring overlaps the previous one by. */
 export const RING_OVERLAP = 0.55;

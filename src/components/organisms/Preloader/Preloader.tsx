@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { RingChain } from './RingChain/RingChain';
 import { useRingMetrics } from './RingChain/useRingMetrics';
+import { RingChain } from './RingChain/RingChain';
 import { motion, animate } from 'framer-motion';
 
 interface PreloaderProps {

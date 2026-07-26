@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, animate } from 'framer-motion';
-import { RING_OVERLAP } from './useRingMetrics';
 import type { RingChainProps, RingMetrics } from './RingChain.type';
+import { useEffect, useRef, useState } from 'react';
+import { RING_OVERLAP } from './useRingMetrics';
+import { motion, animate } from 'framer-motion';
 
 function Ring({ metrics }: { metrics: RingMetrics }) {
   return (
@@ -23,8 +23,6 @@ function Ring({ metrics }: { metrics: RingMetrics }) {
     />
   );
 }
-
-
 
 export function RingChain({ maxCount, metrics, duration }: RingChainProps) {
   const [count, setCount] = useState(0);
